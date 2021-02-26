@@ -28,7 +28,7 @@ else
 fi
 
 echo "***** Copy file for installer construction *****"
-cp -R Maxiforge3 $TEMP_DIR/
+cp -R maxiforge $TEMP_DIR/
 cp LICENSE $TEMP_DIR/
 
 ls -al $TEMP_DIR
@@ -41,7 +41,7 @@ if [[ $(uname -r) != "$ARCH" ]]; then
 fi
 
 echo "***** Construct the installer *****"
-constructor $TEMP_DIR/Maxiforge3/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
+constructor $TEMP_DIR/maxiforge/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
 
 echo "***** Generate installer hash *****"
 cd $TEMP_DIR

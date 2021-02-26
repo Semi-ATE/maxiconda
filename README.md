@@ -12,65 +12,65 @@ This repository holds a minimal installer for [Conda](https://conda.io/) specifi
 
 Maxiforge installers are available here: https://github.com/conda-forge/maxiforge/releases
 
-#### Maxiforge3
+#### maxiforge
 
 Latest installers with Python 3.8 `(*)` in the base environment:
 
 | OS      | Architecture          | Download  |
 | --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [Maxiforge3-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [Maxiforge3-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [Maxiforge3-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [Maxiforge3-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-MacOSX-x86_64.sh) |
-| OS X    | arm64 (Apple Silicon) `(**)` | [Maxiforge3-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-MacOSX-arm64.sh) |
-| Windows | x86_64                | [Maxiforge3-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-Windows-x86_64.exe) |
+| Linux   | x86_64 (amd64)        | [maxiforge-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-x86_64.sh) |
+| Linux   | aarch64 (arm64)       | [maxiforge-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-aarch64.sh) |
+| Linux   | ppc64le (POWER8/9)    | [maxiforge-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-ppc64le.sh) |
+| OS X    | x86_64                | [maxiforge-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-x86_64.sh) |
+| OS X    | arm64 (Apple Silicon) `(**)` | [maxiforge-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-arm64.sh) |
+| Windows | x86_64                | [maxiforge-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Windows-x86_64.exe) |
 
 `(*)` OS X `arm64` will be installed with Python 3.9.
 The Python version is specific only to the base environment. Conda can create new environments with different Python versions and implementations.
 
 `(**)` Apple silicon builds are experimental and haven't had testing like the other platforms.
 
-#### Maxiforge-pypy3
+#### Maxiforge-pypy
 
 Latest installers with PyPy 3.6 in the base environment:
 
 | OS      | Architecture          | Download  |
 | --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [Maxiforge-pypy3-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy3-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [Maxiforge-pypy3-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy3-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [Maxiforge-pypy3-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy3-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [Maxiforge-pypy3-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy3-MacOSX-x86_64.sh) |
+| Linux   | x86_64 (amd64)        | [Maxiforge-pypy-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-x86_64.sh) |
+| Linux   | aarch64 (arm64)       | [Maxiforge-pypy-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-aarch64.sh) |
+| Linux   | ppc64le (POWER8/9)    | [Maxiforge-pypy-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-ppc64le.sh) |
+| OS X    | x86_64                | [Maxiforge-pypy-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-MacOSX-x86_64.sh) |
 
-#### Mambaforge
+#### maxiforge
 
 Latest installers with Mamba in the base environment:
 
 
 | OS      | Architecture          | Download  |
 | --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [Mambaforge-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [Mambaforge-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [Mambaforge-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [Mambaforge-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh) |
-| OS X    | arm64 (Apple Silicon) | [Mambaforge-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-MacOSX-arm64.sh) |
-| Windows | x86_64                | [Mambaforge-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-Windows-x86_64.exe) |
+| Linux   | x86_64 (amd64)        | [maxiforge-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-x86_64.sh) |
+| Linux   | aarch64 (arm64)       | [maxiforge-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-aarch64.sh) |
+| Linux   | ppc64le (POWER8/9)    | [maxiforge-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-ppc64le.sh) |
+| OS X    | x86_64                | [maxiforge-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-x86_64.sh) |
+| OS X    | arm64 (Apple Silicon) | [maxiforge-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-arm64.sh) |
+| Windows | x86_64                | [maxiforge-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Windows-x86_64.exe) |
 
-#### Mambaforge-pypy3
+#### maxiforge-pypy
 
 Latest installers with Mamba and PyPy 3.6 in the base environment:
 
 | OS      | Architecture          | Download  |
 | --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [Mambaforge-pypy3-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-pypy3-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [Mambaforge-pypy3-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-pypy3-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [Mambaforge-pypy3-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-pypy3-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [Mambaforge-pypy3-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Mambaforge-pypy3-MacOSX-x86_64.sh) |
+| Linux   | x86_64 (amd64)        | [maxiforge-pypy-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-x86_64.sh) |
+| Linux   | aarch64 (arm64)       | [maxiforge-pypy-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-aarch64.sh) |
+| Linux   | ppc64le (POWER8/9)    | [maxiforge-pypy-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-ppc64le.sh) |
+| OS X    | x86_64                | [maxiforge-pypy-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-MacOSX-x86_64.sh) |
 
 ## Install
 
 To install download the installer and run,
 
-    bash Maxiforge3-Linux-x86_64.sh   # or similar for other installers for unix platforms
+    bash maxiforge-Linux-x86_64.sh   # or similar for other installers for unix platforms
 
 or if you are on Windows, double click on the installer.
 
@@ -78,11 +78,11 @@ or if you are on Windows, double click on the installer.
 
 For non-interactive usage, look at the options by running the following:
 
-    bash Maxiforge3-Linux-x86_64.sh -h   # or similar for other installers for unix platforms
+    bash maxiforge-Linux-x86_64.sh -h   # or similar for other installers for unix platforms
 
 or if you are on windows, run:
 
-    start /wait "" build/Maxiforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Maxiforge3
+    start /wait "" build/maxiforge-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\maxiforge
 
 ### Downloading the installer as part of a CI pipeline
 
@@ -91,17 +91,17 @@ more automated fashion, you may wish to a command similar to
 
 For Linux, any architecture, use the following command
 
-    wget -O Maxiforge3.sh https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-$(uname)-$(uname -m).sh
+    wget -O maxiforge.sh https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-$(uname)-$(uname -m).sh
 
 For MacOSX, any architecture, use the following command
 
-    curl -fsSLo Maxiforge3.sh https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge3-MacOSX-$(uname -m).sh
+    curl -fsSLo maxiforge.sh https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-$(uname -m).sh
 
 This will download the appropriate installer for the present architecture with
-the filename ``Maxiforge3.sh``. Run the shell script with the command in batch
+the filename ``maxiforge.sh``. Run the shell script with the command in batch
 mode with the `-b` flash:
 
-    bash Maxiforge3.sh -b
+    bash maxiforge.sh -b
 
 ### Homebrew
 
