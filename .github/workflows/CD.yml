@@ -1,6 +1,8 @@
-name: CI
+name: CD
 
-on: [push, pull_request]
+on:
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -90,6 +92,7 @@ jobs:
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
       run: |
+        export MAXIFORGE_VERSION=${GITHUB_REF##*/}
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiforge_linux.sh;
           EXT=sh
@@ -108,9 +111,14 @@ jobs:
         ls -alh build
       shell: bash
 
-    - name: Upload maxiforge to Github artifact
-      if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-      uses: actions/upload-artifact@v2
+    - name: Add maxiforge.sh
+      run: cp maxiforge.sh build/
+
+    - name: Upload maxiforge to release assets
+      uses: svenstaro/upload-release-action@v2
       with:
-        path: build/${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
-        name: ${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: build/maxiforge*
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
