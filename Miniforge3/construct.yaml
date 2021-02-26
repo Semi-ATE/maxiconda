@@ -1,9 +1,8 @@
-{% set version = os.environ.get("MAXIFORGE_VERSION", "4.9.2-0") %}
-{% set name = os.environ.get("MAXIFORGE_NAME", "Maxiforge3") %}
+{% set version = os.environ.get("MAXIFORGE_VERSION", "0.0.0-0") %}
 
-name: {{ name }}
+name: maxiforge
 version: {{ version }}
-company: conda-forge
+company: Semi-ATE
 
 channels:
   # specifying the channel with the full URL adds two channels
@@ -24,12 +23,8 @@ specs:
   - python 3.8.*    # [not (osx and arm64)]
   - python 3.9.*    # [osx and arm64]
 {% endif %}
-
-{% if name.startswith("Mambaforge") %}
-  - mamba 0.7.12
-{% endif %}
+  - mamba
   - conda {{ version.split("-")[0] }}
-
   - pip
   - bzip2
-  - maxiforge_console_shortcut  # [win]
+  # - maxiforge_console_shortcut  # [win]
