@@ -10,6 +10,7 @@ channels:
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
   - conda-forge
+  - Semi-ATE
 
 write_condarc: True
 # keep pkgs for space-saving implications for hardlinks when create new environments
@@ -24,10 +25,7 @@ specs:
   - python 3.8.*    # [not (osx and arm64)]
   - python 3.9.*    # [osx and arm64]
 {% endif %}
-
-{% if name.startswith("Mambaforge") %}
-  - mamba 0.7.12
-{% endif %}
+  - mamba
   - conda
   - pip
   - bzip2
