@@ -1,6 +1,7 @@
 {% set version = os.environ.get("MAXIFORGE_VERSION", "0.0.0-0") %}
+{% set name = os.environ.get("MAXIFORGE_NAME", "maxiforge") %}
 
-name: maxiforge
+name: {{ name }}
 version: {{ version }}
 company: Semi-ATE
 
@@ -9,10 +10,9 @@ channels:
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
   - conda-forge
+  - Semi-ATE
 
 write_condarc: True
-# keep pkgs for space-saving implications for hardlinks when create new environments
-# and keep the same with Miniconda
 keep_pkgs: True
 license_file: ../LICENSE
 
