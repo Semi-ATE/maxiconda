@@ -28,8 +28,7 @@ specs:
 {% if name.startswith("Mambaforge") %}
   - mamba 0.7.12
 {% endif %}
-  - conda {{ version.split("-")[0] }}
-
+  - conda
   - pip
   - bzip2
   # - miniforge_console_shortcut  # [win]
