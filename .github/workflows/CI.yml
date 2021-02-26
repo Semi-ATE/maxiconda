@@ -110,11 +110,8 @@ jobs:
         fi
       shell: bash
 
-    - run: ls -la build/
-      if: contains(matrix.OS_NAME, 'Linux') 
-
     - name: Upload maxiforge to Github artifact
       uses: actions/upload-artifact@v2
       with:
-        path: build/${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
+        path: build/${{ matrix.MAXIFORGE_NAME }}-*-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
         name: ${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
