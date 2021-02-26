@@ -1,5 +1,5 @@
-{% set version = os.environ.get("MINIFORGE_VERSION", "4.9.2-0") %}
-{% set name = os.environ.get("MINIFORGE_NAME", "Miniforge3") %}
+{% set version = os.environ.get("MAXIFORGE_VERSION", "4.9.2-0") %}
+{% set name = os.environ.get("MAXIFORGE_NAME", "Maxiforge3") %}
 
 name: {{ name }}
 version: {{ version }}
@@ -32,4 +32,4 @@ specs:
 
   - pip
   - bzip2
-  - miniforge_console_shortcut  # [win]
+  - maxiforge_console_shortcut  # [win]

@@ -1,6 +1,6 @@
-Miniforge installer code uses BSD-3-Clause license as stated below.
+Maxiforge installer code uses BSD-3-Clause license as stated below.
 Binary packages that come with it have their own licensing terms
-and by installing miniforge you agree to the licensing terms of individual
+and by installing maxiforge you agree to the licensing terms of individual
 packages as well. They include different OSI-approved licenses including
 the GNU General Public License and can be found in pkgs/<pkg-name>/info/licenses
 folder.
