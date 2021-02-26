@@ -111,6 +111,7 @@ jobs:
       shell: bash
 
     - run: ls -la build/
+      if: contains(matrix.OS_NAME, 'Linux') 
 
     - name: Upload maxiforge to Github artifact
       uses: actions/upload-artifact@v2
