@@ -104,7 +104,7 @@ jobs:
           EXT=sh
         fi
         if [[ "$OS_NAME" == "Windows" ]]; then
-          source /c/maxiforge/Scripts/activate;
+          source /c/Miniconda3/Scripts/activate;
           source build_maxiforge_windows.sh;
           EXT=exe
         fi
