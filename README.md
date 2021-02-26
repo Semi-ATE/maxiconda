@@ -1,168 +1,61 @@
-# Maxiforge
-![Build Maxiforge](https://github.com/conda-forge/maxiforge/workflows/Build%20maxiforge/badge.svg)
+# maxiconda
 
-This repository holds a minimal installer for [Conda](https://conda.io/) specific to [conda-forge](https://conda-forge.org/). It is comparable to [Miniconda](https://docs.conda.io/en/latest/miniconda.html), but with:
+A one-stop installer purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython) or [PyPy](https://en.wikipedia.org/wiki/PyPy)), [Jupyter](https://jupyter.org/) and [R](https://www.r-project.org/) for users.
 
-* `conda-forge` set as the default channel
-* an emphasis on supporting various CPU architectures
-* optional support for [PyPy](https://www.pypy.org/) in place of standard Python (aka "CPython")
-* optional support for [Mamba](https://github.com/mamba-org/mamba) in place of Conda
+[![GitHub](https://img.shields.io/github/license/Semi-ATE/maxiconda?color=black)](https://github.com/Semi-ATE/maxiconda/blob/main/LICENSE)
 
-## Download
+[![CI](https://github.com/Semi-ATE/DT/workflows/CI/badge.svg?branch=main)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACI)
+[![CD](https://github.com/Semi-ATE/maxiconda/workflows/CD/badge.svg)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACD)
 
-Maxiforge installers are available here: https://github.com/conda-forge/maxiforge/releases
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Semi-ATE/maxiconda?color=blue&label=GitHub&sort=semver)](https://github.com/Semi-ATE/maxiconda/releases/latest)
+[![PyPI](https://img.shields.io/pypi/v/maxiconda?color=blue&label=PyPI)](https://pypi.org/project/maxiconda/)
+![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/maxiconda?color=blue&label=conda-forge)
+[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/Semi-ATE/maxiconda/latest)](https://github.com/Semi-ATE/maxiconda)
 
-#### maxiforge
+[![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/DT)](https://github.com/Semi-ATE/maxiconda/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/maxiconda)](https://github.com/Semi-ATE/maxiconda/pulls)
 
-Latest installers with Python 3.8 `(*)` in the base environment:
+# raison d'être
 
-| OS      | Architecture          | Download  |
-| --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [maxiforge-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [maxiforge-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [maxiforge-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [maxiforge-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-x86_64.sh) |
-| OS X    | arm64 (Apple Silicon) `(**)` | [maxiforge-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-arm64.sh) |
-| Windows | x86_64                | [maxiforge-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Windows-x86_64.exe) |
+The 'raison d'être' of this installer is that the [Anaconda](https://docs.anaconda.com/anaconda/install/) installer **does not support** [aarch64](https://en.wikipedia.org/wiki/AArch64) processors, neighter does the [miniconda]() installer out of the box as both are based on the [anaconda channel](). There is the [miniforge](https://github.com/conda-forge/miniforge) installer though, however this one (as miniconda) installs a (very) basic `base` environment, and leaves it up to the user to do some more command line magic to get things going.
 
-`(*)` OS X `arm64` will be installed with Python 3.9.
-The Python version is specific only to the base environment. Conda can create new environments with different Python versions and implementations.
+`miniconda` and `miniforge` where designed with CI in mind, `Anaconda` was designed with the **user** in mind, if we put this in a table, it becomes clear where `maxiconda` fits in :
 
-`(**)` Apple silicon builds are experimental and haven't had testing like the other platforms.
+ ![conda table](https://github.com/Semi-ATE/maxiconda/blob/main/conda_table.png)
 
-#### Maxiforge-pypy
+maxiconda is thus the equivalent of `anaconda` when we want to use `conda-forge` as a base channel.
 
-Latest installers with PyPy 3.6 in the base environment:
+maxiconda is also installing things a bit different then anaconda in that it :
 
-| OS      | Architecture          | Download  |
-| --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [Maxiforge-pypy-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [Maxiforge-pypy-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [Maxiforge-pypy-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [Maxiforge-pypy-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/Maxiforge-pypy-MacOSX-x86_64.sh) |
+  1. Installs a small `base` environment (as miniconda and miniforge do), but as conda-forge is so big also [mamba](https://github.com/mamba-org/mamba) is already added to the `base` environment, [git](https://anaconda.org/conda-forge/git) is also always needed and ...  [ofcourse](https://www.youtube.com/watch?v=Ul79ihg41Rs) [pip](https://anaconda.org/conda-forge/pip) is removed! Note that all sub-sequent conda environments enherit form `base`, so this is to be a  lean-mean-fighting-machine environment!
+  2. Installs a `_spyder_` (application) environment where [spyder](https://www.spyder-ide.org/) and **all** it's dependencies (required, optional and extra) live.
+  3. Installs a `maxiconda` (development) environment much like the one anaconda inc. installs in the `base` environment 😒 when using their installer(s), modified a bit, as it no longer holds spyder and it's dependencies, but **ONLY** the [spyder-kernels](https://github.com/spyder-ide/spyder-kernels) and [spyder-remote-server](https://github.com/Semi-ATE/spyder-remote) packages.
 
-#### maxiforge
+It is also organized such that, when starting a terminal, the `maxiconda` environment is activated (to prevent accidental screwing up the `base` environment 😏)
 
-Latest installers with Mamba in the base environment:
+# Support & Installation
 
+Based on your OS, download the installer from the table below :
 
-| OS      | Architecture          | Download  |
-| --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [maxiforge-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [maxiforge-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [maxiforge-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [maxiforge-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-x86_64.sh) |
-| OS X    | arm64 (Apple Silicon) | [maxiforge-MacOSX-arm64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-arm64.sh) |
-| Windows | x86_64                | [maxiforge-Windows-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-Windows-x86_64.exe) |
+| OS      |Architecture                | Python | Download                                                                             |
+|:--------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|
+| Windows | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.msi)        |
+| Linux   | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
+| MacOS   | x86_64 / M1⁽¹⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.dmg) |
 
-#### maxiforge-pypy
+⁽¹⁾ Experimental
 
-Latest installers with Mamba and PyPy 3.6 in the base environment:
+For (re)installation, run the installer on your local machine :
 
-| OS      | Architecture          | Download  |
-| --------|-----------------------|-----------|
-| Linux   | x86_64 (amd64)        | [maxiforge-pypy-Linux-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-x86_64.sh) |
-| Linux   | aarch64 (arm64)       | [maxiforge-pypy-Linux-aarch64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-aarch64.sh) |
-| Linux   | ppc64le (POWER8/9)    | [maxiforge-pypy-Linux-ppc64le](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-Linux-ppc64le.sh) |
-| OS X    | x86_64                | [maxiforge-pypy-MacOSX-x86_64](https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-pypy-MacOSX-x86_64.sh) |
+- Windows : double click the downloaded `maxiconda.exe` file and follow the instructions.
+- Linux & MacOS : run the downloaded `maxiconda.sh` script in a terminal and follow the instructions.
 
-## Install
+Note that PyPy is only supported under Linux an MacOS, and to use it run the installation script as follows : `./maxiconda.sh --pypy`
 
-To install download the installer and run,
+# Environments and their packages
 
-    bash maxiforge-Linux-x86_64.sh   # or similar for other installers for unix platforms
+ ![base](https://img.shields.io/badge/packages-base-red)
 
-or if you are on Windows, double click on the installer.
+ ![_spyder_](https://img.shields.io/badge/packages-__spyder__-orange)
 
-### Non-interactive install
-
-For non-interactive usage, look at the options by running the following:
-
-    bash maxiforge-Linux-x86_64.sh -h   # or similar for other installers for unix platforms
-
-or if you are on windows, run:
-
-    start /wait "" build/maxiforge-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\maxiforge
-
-### Downloading the installer as part of a CI pipeline
-
-If you wish to download the appropriate installer through the command line in a
-more automated fashion, you may wish to a command similar to
-
-For Linux, any architecture, use the following command
-
-    wget -O maxiforge.sh https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-$(uname)-$(uname -m).sh
-
-For MacOSX, any architecture, use the following command
-
-    curl -fsSLo maxiforge.sh https://github.com/conda-forge/maxiforge/releases/latest/download/maxiforge-MacOSX-$(uname -m).sh
-
-This will download the appropriate installer for the present architecture with
-the filename ``maxiforge.sh``. Run the shell script with the command in batch
-mode with the `-b` flash:
-
-    bash maxiforge.sh -b
-
-### Homebrew
-
-On macOS, you can install maxiforge with [Homebrew](https://brew.sh/) by running
-
-    brew install maxiforge
-
-## Features
-
-- [X] Automatic build of constructor.
-- [X] Automatic upload of constructor results.
-- [X] Automatic testing of constructor.
-- [ ] Integration with conda-forge's developer documentation.
-- [ ] Integration with conda-forge's official site.
-- [ ] Upstream to Anaconda ?
-
-## Testing
-
-After construction on the CI, the installer is tested against a range of distribution that match the installer architecture (`$ARCH`). For example when architecture is `aarch64`, the constructed installer is tested against:
-
-- Centos 7
-- Debian Buster (10)
-- Ubuntu 16.04
-- Ubuntu 18.04
-- Ubuntu 19.10
-- Ubuntu 20.04
-
-## Usage
-
-Installers are built and uploaded via the CI but if you want to construct your own Maxiforge installer, here is how:
-
-```bash
-# Configuration
-export ARCH=aarch64
-export DOCKERIMAGE=condaforge/linux-anvil-aarch64
-
-bash build_maxiforge.sh
-```
-
-## Release
-
-To release a new version of Maxiforge:
-
-- Make a new pre-release on GitHub with name `$CONDA_VERSION-$BUILD_NUMBER`
-- Wait until all artifacts are uploaded by CI
-  - For each build, we upload 3 artifacts
-    1. One installer with the version name
-    2. One installer without the version name
-    3. The SHA256
-  - At the time of writing, the is a sum of 60 artifacts, and with the two sources, we expect a grand total of 62 artifacts.
-- Mark the pre-release as a release
-
-NOTE: using a pre-release is important to make sure the latest links work.
-
-## License
-
-[BSD 3-Clause](./LICENSE)
-
-## History
-
-Relevant conversations:
-
-- https://github.com/conda-forge/conda-forge.github.io/issues/871#issue-496677528
-- https://github.com/conda-forge/conda-forge.github.io/pull/922
+ ![maxiconda](https://img.shields.io/badge/packages-maxiconda-green)
