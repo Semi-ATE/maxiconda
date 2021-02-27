@@ -41,7 +41,7 @@ Based on your OS, download the installer from the table below :
 | Linux   | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
 | MacOS⁽¹⁾ | x86_64                    | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
 
-⁽¹⁾ Limited to macOS Catalina (10.15) for now Big Sur / M1 support will come when GitHub supports it.
+⁽¹⁾ Limited to macOS Catalina (10.15) for now Big Sur / M1 support will come when GitHub Actions supports it.
 
 For (re)installation, run the installer on your local machine :
 
