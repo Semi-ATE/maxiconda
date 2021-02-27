@@ -1,6 +1,6 @@
 # maxiconda
 
-A one-stop installer purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython) or [PyPy](https://en.wikipedia.org/wiki/PyPy)), [Jupyter](https://jupyter.org/) and [R](https://www.r-project.org/) for users.
+Cross platform conda installer purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython), [Jupyter](https://jupyter.org/) and [R](https://www.r-project.org/) for users. 
 
 [![GitHub](https://img.shields.io/github/license/Semi-ATE/maxiconda?color=black)](https://github.com/Semi-ATE/maxiconda/blob/main/LICENSE)
 
