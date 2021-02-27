@@ -20,10 +20,10 @@ jobs:
           #   MAXIFORGE_NAME: "maxiforge"
           #   OS_NAME: "MacOSX"
 
-          # - os: macos-latest
-          #   ARCH: x86_64
-          #   MAXIFORGE_NAME: "maxiforge-pypy"
-          #   OS_NAME: "MacOSX"
+          - os: macos-latest
+            ARCH: x86_64
+            MAXIFORGE_NAME: "maxiforge-pypy"
+            OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: arm64
@@ -35,12 +35,12 @@ jobs:
           #   MAXIFORGE_NAME: "maxiforge"
           #   OS_NAME: "MacOSX"
 
-          - os: ubuntu-latest
-            ARCH: aarch64
-            DOCKER_ARCH: arm64v8
-            DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MAXIFORGE_NAME: "maxiforge"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: aarch64
+          #   DOCKER_ARCH: arm64v8
+          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
+          #   MAXIFORGE_NAME: "maxiforge"
+          #   OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: x86_64
@@ -49,39 +49,39 @@ jobs:
             MAXIFORGE_NAME: "maxiforge"
             OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: ppc64le
-            DOCKER_ARCH: ppc64le
-            DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MAXIFORGE_NAME: "maxiforge"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: ppc64le
+          #   DOCKER_ARCH: ppc64le
+          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
+          #   MAXIFORGE_NAME: "maxiforge"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: aarch64
-            DOCKER_ARCH: arm64v8
-            DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: aarch64
+          #   DOCKER_ARCH: arm64v8
+          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
+          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: x86_64
-            DOCKER_ARCH: amd64
-            DOCKERIMAGE: condaforge/linux-anvil-comp7
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: x86_64
+          #   DOCKER_ARCH: amd64
+          #   DOCKERIMAGE: condaforge/linux-anvil-comp7
+          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: ppc64le
-            DOCKER_ARCH: ppc64le
-            DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: ppc64le
+          #   DOCKER_ARCH: ppc64le
+          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
+          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   OS_NAME: "Linux"
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Windows specific setup
+    - name: Windows-only setup
       uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
