@@ -1,6 +1,6 @@
 # maxiconda
 
-[Cross platform](https://en.wikipedia.org/wiki/Cross-platform_software) [conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) [installer](https://en.wikipedia.org/wiki/Installation_(computer_programs)#Installer) purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython), [Jupyter](https://jupyter.org/) and [R](https://www.r-project.org/) for users. 
+[Cross platform](https://en.wikipedia.org/wiki/Cross-platform_software) [conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) [installer](https://en.wikipedia.org/wiki/Installation_(computer_programs)#Installer) purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython) or [PyPy](https://en.wikipedia.org/wiki/PyPy)) and [R](https://www.r-project.org/) for users. 
 
 [![GitHub](https://img.shields.io/github/license/Semi-ATE/maxiconda?color=black)](https://github.com/Semi-ATE/maxiconda/blob/main/LICENSE)
 
