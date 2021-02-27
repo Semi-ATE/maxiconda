@@ -1,9 +1,10 @@
-name: Build miniforge
+name: CI
+
 on: [push, pull_request]
 
 jobs:
   build:
-    name: ${{ matrix.MINIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
+    name: ${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -11,117 +12,106 @@ jobs:
         include:
           - os: windows-latest
             ARCH: x86_64
-            MINIFORGE_NAME: "Mambaforge"
+            MAXIFORGE_NAME: "maxiforge"
             OS_NAME: "Windows"
 
-          - os: macos-latest
-            ARCH: arm64
-            MINIFORGE_NAME: "Mambaforge"
-            OS_NAME: "MacOSX"
+          # - os: macos-latest
+          #   ARCH: arm64
+          #   MAXIFORGE_NAME: "maxiforge"
+          #   OS_NAME: "MacOSX"
 
-          - os: macos-latest
-            ARCH: x86_64
-            MINIFORGE_NAME: "Mambaforge-pypy3"
-            OS_NAME: "MacOSX"
+          # - os: macos-latest
+          #   ARCH: x86_64
+          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   OS_NAME: "MacOSX"
 
-          - os: macos-latest
-            ARCH: x86_64
-            MINIFORGE_NAME: "Mambaforge"
-            OS_NAME: "MacOSX"
+          # - os: macos-latest
+          #   ARCH: arm64
+          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   OS_NAME: "MacOSX"
+
+          # - os: macos-latest
+          #   ARCH: x86_64
+          #   MAXIFORGE_NAME: "maxiforge"
+          #   OS_NAME: "MacOSX"
 
           - os: ubuntu-latest
             ARCH: aarch64
             DOCKER_ARCH: arm64v8
             DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MINIFORGE_NAME: "Mambaforge"
+            MAXIFORGE_NAME: "maxiforge"
             OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: x86_64
             DOCKER_ARCH: amd64
             DOCKERIMAGE: condaforge/linux-anvil-comp7
-            MINIFORGE_NAME: "Mambaforge"
+            MAXIFORGE_NAME: "maxiforge"
             OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: ppc64le
             DOCKER_ARCH: ppc64le
             DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MINIFORGE_NAME: "Mambaforge"
+            MAXIFORGE_NAME: "maxiforge"
             OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: aarch64
             DOCKER_ARCH: arm64v8
             DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MINIFORGE_NAME: "Mambaforge-pypy3"
+            MAXIFORGE_NAME: "maxiforge-pypy"
             OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: x86_64
             DOCKER_ARCH: amd64
             DOCKERIMAGE: condaforge/linux-anvil-comp7
-            MINIFORGE_NAME: "Mambaforge-pypy3"
+            MAXIFORGE_NAME: "maxiforge-pypy"
             OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: ppc64le
             DOCKER_ARCH: ppc64le
             DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MINIFORGE_NAME: "Mambaforge-pypy3"
+            MAXIFORGE_NAME: "maxiforge-pypy"
             OS_NAME: "Linux"
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - uses: conda-incubator/setup-miniconda@v2
+    - name: Windows specific setup
+      uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
       if: contains(matrix.OS_NAME, 'Windows')
 
-    - name: Build and test miniforge
+    - name: Build and test maxiforge
       env:
         ARCH: ${{ matrix.ARCH }}
-        MINIFORGE_NAME: ${{ matrix.MINIFORGE_NAME }}
+        MAXIFORGE_NAME: ${{ matrix.MAXIFORGE_NAME }}
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
       run: |
-        if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-          export MINIFORGE_VERSION=${GITHUB_REF##*/};
-        fi
         if [[ "$OS_NAME" == "Linux" ]]; then
-          bash build_miniforge.sh;
+          bash build_maxiforge_linux.sh;
           EXT=sh
         fi
         if [[ "$OS_NAME" == "MacOSX" ]]; then
-          bash build_miniforge_osx.sh;
+          bash build_maxiforge_macos.sh;
           EXT=sh
         fi
         if [[ "$OS_NAME" == "Windows" ]]; then
           source /c/Miniconda3/Scripts/activate;
-          source build_miniforge_win.sh;
+          source build_maxiforge_windows.sh;
           EXT=exe
         fi
-        # Copy for latest release
-        cp build/$MINIFORGE_NAME-*-$OS_NAME-$ARCH.$EXT build/$MINIFORGE_NAME-$OS_NAME-$ARCH.$EXT
-        ls -alh build
       shell: bash
 
-    - name: Upload miniforge to Github artifact
-      if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    - name: Upload maxiforge to Github artifact
       uses: actions/upload-artifact@v2
       with:
-        path: build/${{ matrix.MINIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
-        name: ${{ matrix.MINIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
-
-    - name: Upload miniforge to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: build/M*forge*
-        tag: ${{ github.ref }}
-        overwrite: true
-        file_glob: true
-      if: startsWith(github.ref, 'refs/tags/')
+        path: build/${{ matrix.MAXIFORGE_NAME }}-*-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
+        name: ${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}

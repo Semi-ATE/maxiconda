@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build miniforge installers for Linux 
+# Build maxiforge installers for Linux 
 # on various architectures (aarch64, x86_64, ppc64le)
 # Notes:
 # It uses the qemu-user-static [1] emulator to enable 
@@ -25,7 +25,7 @@ docker run --rm --privileged multiarch/qemu-user-static \
 
 echo "============= Build the installer ============="
 docker run --rm -v "$(pwd):/construct" \
-  -e CONSTRUCT_ROOT -e MINIFORGE_VERSION -e MINIFORGE_NAME \
+  -e CONSTRUCT_ROOT -e MAXIFORGE_VERSION -e MAXIFORGE_NAME \
   ${DOCKERIMAGE} /construct/scripts/build.sh
 
 echo "============= Test the installer ============="

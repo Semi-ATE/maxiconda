@@ -2,7 +2,7 @@
 
 set -xe
 
-echo "***** Start: Building Miniforge installer *****"
+echo "***** Start: Building Maxiforge installer *****"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -28,7 +28,7 @@ else
 fi
 
 echo "***** Copy file for installer construction *****"
-cp -R Miniforge3 $TEMP_DIR/
+cp -R maxiforge $TEMP_DIR/
 cp LICENSE $TEMP_DIR/
 
 ls -al $TEMP_DIR
@@ -41,7 +41,7 @@ if [[ $(uname -r) != "$ARCH" ]]; then
 fi
 
 echo "***** Construct the installer *****"
-constructor $TEMP_DIR/Miniforge3/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
+constructor $TEMP_DIR/maxiforge/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
 
 echo "***** Generate installer hash *****"
 cd $TEMP_DIR
@@ -51,7 +51,7 @@ else
    EXT=sh;
 fi
 # This line will break if there is more than one installer in the folder.
-INSTALLER_PATH=$(find . -name "M*forge*.$EXT" | head -n 1)
+INSTALLER_PATH=$(find . -name "maxiforge*.$EXT" | head -n 1)
 HASH_PATH="$INSTALLER_PATH.sha256"
 sha256sum $INSTALLER_PATH > $HASH_PATH
 
@@ -60,5 +60,5 @@ mkdir -p $CONSTRUCT_ROOT/build
 mv $INSTALLER_PATH $CONSTRUCT_ROOT/build/
 mv $HASH_PATH $CONSTRUCT_ROOT/build/
 
-echo "***** Done: Building Miniforge installer *****"
+echo "***** Done: Building Maxiforge installer *****"
 cd $CONSTRUCT_ROOT

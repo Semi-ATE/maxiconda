@@ -2,9 +2,9 @@
 
 set -ex
 
-echo "***** Start: Testing Miniforge installer *****"
+echo "***** Start: Testing Maxiforge installer *****"
 
-export CONDA_PATH="$HOME/miniforge"
+export CONDA_PATH="$HOME/maxiforge"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -58,10 +58,10 @@ fi
 
 echo "***** Python path *****"
 python -c "import sys; print(sys.executable)"
-python -c "import sys; assert 'miniforge' in sys.executable"
+python -c "import sys; assert 'maxiforge' in sys.executable"
 
 echo "***** Print system informations from Python *****"
-python -c "print('Hello Miniforge !')"
+python -c "print('Hello Maxiforge !')"
 python -c "import platform; print(platform.architecture())"
 python -c "import platform; print(platform.system())"
 python -c "import platform; print(platform.machine())"

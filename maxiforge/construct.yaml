@@ -1,5 +1,5 @@
-{% set version = os.environ.get("MINIFORGE_VERSION", "4.9.2-0") %}
-{% set name = os.environ.get("MINIFORGE_NAME", "Miniforge3") %}
+{% set version = os.environ.get("MAXIFORGE_VERSION", "0.0.0") %}
+{% set name = os.environ.get("MAXIFORGE_NAME", "maxiforge") %}
 
 name: {{ name }}
 version: {{ version }}
@@ -10,6 +10,7 @@ channels:
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
   - conda-forge
+  - Semi-ATE
 
 write_condarc: True
 # keep pkgs for space-saving implications for hardlinks when create new environments
@@ -24,12 +25,8 @@ specs:
   - python 3.8.*    # [not (osx and arm64)]
   - python 3.9.*    # [osx and arm64]
 {% endif %}
-
-{% if name.startswith("Mambaforge") %}
-  - mamba 0.7.12
-{% endif %}
-  - conda {{ version.split("-")[0] }}
-
+  - mamba
+  - conda
   - pip
   - bzip2
   - miniforge_console_shortcut  # [win]
