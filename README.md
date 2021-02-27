@@ -8,8 +8,6 @@
 [![CD](https://github.com/Semi-ATE/maxiconda/workflows/CD/badge.svg)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACD)
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Semi-ATE/maxiconda?color=blue&label=GitHub&sort=semver)](https://github.com/Semi-ATE/maxiconda/releases/latest)
-[![PyPI](https://img.shields.io/pypi/v/maxiconda?color=blue&label=PyPI)](https://pypi.org/project/maxiconda/)
-![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/maxiconda?color=blue&label=conda-forge)
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/Semi-ATE/maxiconda/latest)](https://github.com/Semi-ATE/maxiconda)
 
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/DT)](https://github.com/Semi-ATE/maxiconda/issues)
