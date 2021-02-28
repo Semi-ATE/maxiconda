@@ -12,7 +12,6 @@ cd $CONSTRUCT_ROOT
 # See https://github.com/conda/constructor
 echo "***** Install constructor *****"
 conda install -y "constructor>=3.1.0" jinja2 -c conda-forge -c defaults --override-channels
-conda install -y tree -c conda-forge -c defaults --override-channels
 if [[ "$(uname)" == "Darwin" ]]; then
     conda install -y coreutils -c conda-forge -c defaults --override-channels
 elif [[ "$(uname)" == MINGW* ]]; then
@@ -52,7 +51,6 @@ else
    EXT=sh;
 fi
 # This line will break if there is more than one installer in the folder.
-tree
 INSTALLER_PATH=$(find . -name "maxiconda*.$EXT" | head -n 1)
 HASH_PATH="$INSTALLER_PATH.sha256"
 sha256sum $INSTALLER_PATH > $HASH_PATH
