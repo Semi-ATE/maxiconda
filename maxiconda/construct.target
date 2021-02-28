@@ -1,0 +1,51 @@
+# https://github.com/conda/constructor/blob/master/CONSTRUCT.md
+{% set version = os.environ.get("MAXICONDA_VERSION", "0.0.0") %}
+{% set name = os.environ.get("MAXICONDA_NAME", "maxiconda") %}
+
+name: {{ name }}
+version: {{ version }}
+company: Semi-ATE
+
+channels: &id1 
+  - conda-forge
+  - msys2           #[win]
+  - Semi-ATE
+
+# environment_file: environment.yaml
+
+register_python_default: True
+conda_default_channels: *id1
+write_condarc: True
+keep_pkgs: True
+license_file: ../LICENSE
+
+# pre_install: pre-install.sh       # [unix]
+# post_install: post-install.sh     # [unix]
+# #windows has no pre-install ...
+# post_install: post-install.bat    # [win]
+# pre_uninstall: pre-uninstall.bat  # [win]
+
+# Windows only
+# welcome_image: welcome_image.png
+# header_image: header_image.png
+# icon_image: icon_image.png
+header_image_text: maxiconda
+
+# MacOS only
+# signing_identity_name: Semi-ATE
+
+specs:
+{% if name.endswith("pypy") %}
+  - python 3.6.* *_pypy
+{% else %}
+  - python 3.8.*    # [not (osx and arm64)]
+  - python 3.9.*    # [osx and arm64]
+{% endif %}
+  - mamba
+  - conda
+  - pip
+  - bzip2
+  - miniforge_console_shortcut  # [win]
+
+# exclude:
+#   - pip
