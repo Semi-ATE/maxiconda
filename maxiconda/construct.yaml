@@ -18,16 +18,16 @@ write_condarc: True
 keep_pkgs: True
 license_file: ../LICENSE
 
-pre_install: pre-install.sh       # [unix]
-post_install: post-install.sh     # [unix]
-#windows has no pre-install ...
-post_install: post-install.bat    # [win]
-pre_uninstall: pre-uninstall.bat  # [win]
+# pre_install: pre-install.sh       # [unix]
+# post_install: post-install.sh     # [unix]
+# #windows has no pre-install ...
+# post_install: post-install.bat    # [win]
+# pre_uninstall: pre-uninstall.bat  # [win]
 
 # Windows only
-welcome_image: welcome_image.png
-header_image: header_image.png
-icon_image: icon_image.png
+# welcome_image: welcome_image.png
+# header_image: header_image.png
+# icon_image: icon_image.png
 header_image_text: maxiconda
 
 # MacOS only
