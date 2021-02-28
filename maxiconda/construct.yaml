@@ -8,6 +8,7 @@ company: Semi-ATE
 
 channels: &id1 
   - conda-forge
+  - msys2           #[win]
   - Semi-ATE
 
 # environment_file: environment.yaml
