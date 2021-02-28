@@ -19,13 +19,13 @@ else
 fi
 INSTALLER_PATH=$(find build/ -name "maxiconda*.$EXT" | head -n 1)
 
-echo "***** Run the installer *****"
 chmod +x $INSTALLER_PATH
 if [[ "$(uname)" == MINGW* ]]; then
+  echo "***** Run the installer *****"
   echo "start /wait \"\" ${INSTALLER_PATH} /InstallationType=JustMe /RegisterPython=0 /S /D=$(cygpath -w $CONDA_PATH)" > install.bat
   cmd.exe /c install.bat
 
-  echo "***** Setup conda *****"
+  echo "***** activate conda *****"
   source $CONDA_PATH/Scripts/activate
   conda.exe config --set show_channel_urls true
 
@@ -41,9 +41,10 @@ if [[ "$(uname)" == MINGW* ]]; then
   conda.exe install r-base --yes --quiet
   conda.exe list
 else
+  echo "***** Run the installer *****"
   bash $INSTALLER_PATH -b -p $CONDA_PATH
 
-  echo "***** Setup conda *****"
+  echo "***** activate conda *****"
   source $CONDA_PATH/bin/activate
 
   echo "***** Print conda info *****"
@@ -51,6 +52,7 @@ else
   conda list
 fi
 
+echo "***** Test the installer *****"
 
 # 2020/09/15: Running conda update switches from pypy to cpython. Not sure why
 # echo "***** Run conda update *****"
