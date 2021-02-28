@@ -15,10 +15,15 @@ jobs:
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Windows"
 
-          - os: macos-latest
-            ARCH: arm64
-            MAXICONDA_NAME: "maxiconda"
-            OS_NAME: "MacOSX"
+          # - os: macos-latest
+          #   ARCH: x86_64
+          #   MAXICONDA_NAME: "maxiconda"
+          #   OS_NAME: "MacOSX"
+
+          # - os: macos-latest
+          #   ARCH: arm64
+          #   MAXICONDA_NAME: "maxiconda"
+          #   OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: x86_64
@@ -28,11 +33,6 @@ jobs:
           # - os: macos-latest
           #   ARCH: arm64
           #   MAXICONDA_NAME: "maxiconda-pypy"
-          #   OS_NAME: "MacOSX"
-
-          # - os: macos-latest
-          #   ARCH: x86_64
-          #   MAXICONDA_NAME: "maxiconda"
           #   OS_NAME: "MacOSX"
 
           # - os: ubuntu-latest
