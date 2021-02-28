@@ -12,6 +12,7 @@ cd $CONSTRUCT_ROOT
 # See https://github.com/conda/constructor
 echo "***** Install constructor *****"
 conda install -y "constructor>=3.1.0" jinja2 -c conda-forge -c defaults --override-channels
+conda install -y tree -c conda-forge -c defaults --override-channels
 if [[ "$(uname)" == "Darwin" ]]; then
     conda install -y coreutils -c conda-forge -c defaults --override-channels
 elif [[ "$(uname)" == MINGW* ]]; then
