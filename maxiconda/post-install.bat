@@ -4,7 +4,9 @@
 # file : post-install.bat
 
 # 
-# description
+# Once the maxiconda installer did run (and thus created the 'base' envriornment),
+# this script is (on Windows) responsible to create the '_spyder_' and 'maxiconda'
+# environments with the respectively named conda metapackages from the Semi-ATE channel.
 #
 
 ECHO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>hallelujah<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

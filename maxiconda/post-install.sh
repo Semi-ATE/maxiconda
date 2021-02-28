@@ -6,7 +6,9 @@
 # file : post-install.sh
 
 # 
-# description
+# Once the maxiconda installer did run (and thus created the 'base' envriornment),
+# this script is (on Linux and MacOS) responsible to create the '_spyder_' and 'maxiconda'
+# environments with the respectively named conda metapackages from the Semi-ATE channel.
 #
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>hallelujah<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"

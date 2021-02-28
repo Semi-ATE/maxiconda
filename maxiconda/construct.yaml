@@ -18,11 +18,15 @@ write_condarc: True
 keep_pkgs: True
 license_file: ../LICENSE
 
-# pre_install: pre-install.sh       # [unix]
 post_install: post-install.sh     # [unix]
-# #windows has no pre-install ...
 post_install: post-install.bat    # [win]
-# pre_uninstall: pre-uninstall.bat  # [win]
+
+welcome_image: welcome_image.png  # [win]
+header_image: header_image.png    # [win]
+icon_image: icon_image.png        # [win]
+header_image_text: maxiconda      # [win]
+
+# signing_identity_name: Semi-ATE   # [osx]
 
 specs:
 {% if name.endswith("pypy3") %}
@@ -37,5 +41,5 @@ specs:
   - bzip2
   - miniforge_console_shortcut  # [win]
 
-  # exclude:
-#   - pip
+exclude:
+  - pip
