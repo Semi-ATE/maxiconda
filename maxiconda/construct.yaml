@@ -5,7 +5,7 @@ name: {{ name }}
 version: {{ version }}
 company: Semi-ATE
 
-channels:
+channels: &id1 
   # specifying the channel with the full URL adds two channels
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
@@ -13,6 +13,7 @@ channels:
   - Semi-ATE
 
 write_condarc: True
+conda_default_channels: *id1
 # keep pkgs for space-saving implications for hardlinks when create new environments
 # and keep the same with Miniconda
 keep_pkgs: True
