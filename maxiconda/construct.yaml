@@ -41,5 +41,6 @@ specs:
   - bzip2
   - miniforge_console_shortcut  # [win]
 
-exclude:
-  - pip
+# pip needs excluding after installation (post-install script)
+# exclude:
+#   - pip
