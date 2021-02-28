@@ -59,3 +59,4 @@ Note that PyPy is only supported under Linux an MacOS, and to use it run the ins
  ![_spyder_](https://img.shields.io/badge/packages-__spyder__-orange)
 
  ![maxiconda](https://img.shields.io/badge/packages-maxiconda-green)
+
