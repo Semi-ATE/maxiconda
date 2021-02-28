@@ -2,9 +2,9 @@
 
 set -ex
 
-echo "***** Start: Testing Maxiforge installer *****"
+echo "***** Start: Testing Maxiconda installer *****"
 
-export CONDA_PATH="$HOME/maxiforge"
+export CONDA_PATH="$HOME/maxiconda"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -58,10 +58,10 @@ fi
 
 echo "***** Python path *****"
 python -c "import sys; print(sys.executable)"
-python -c "import sys; assert 'maxiforge' in sys.executable"
+python -c "import sys; assert 'maxiconda' in sys.executable"
 
 echo "***** Print system informations from Python *****"
-python -c "print('Hello Maxiforge !')"
+python -c "print('Hello Maxiconda !')"
 python -c "import platform; print(platform.architecture())"
 python -c "import platform; print(platform.system())"
 python -c "import platform; print(platform.machine())"

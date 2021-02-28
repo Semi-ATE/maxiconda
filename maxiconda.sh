@@ -3,8 +3,8 @@
 USAGE_TXT="
 usage: $0 [--pypy]
 
-This is a front-end for Linux- and MacOS- maxiforge installers. 
-It fetches the appropriate and most recent maxiforge installer for the 
+This is a front-end for Linux- and MacOS- maxiconda installers. 
+It fetches the appropriate and most recent maxiconda installer for the 
 current OS/CPU, checks the SHA256 signature and then runs it.
 
 --pypy     Use PyPy instead of the default CPython implementation.
@@ -57,11 +57,11 @@ case $CPU in
 esac
 
 ## URI's & COMMANDS ###
-BASE_URL="https://github.com/Semi-ATE/maxiforge/releases/latest/download/"
-VERSION_URL="https://github.com/Semi-ATE/maxiforge/releases/latest/"
+BASE_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/download/"
+VERSION_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/"
 [[ `curl -s $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
 VERSION=${BASH_REMATCH[1]}
-INSTALLER="maxiforge$IMPL-$OS_NAME-$CPU_NAME.sh"
+INSTALLER="maxiconda$IMPL-$OS_NAME-$CPU_NAME.sh"
 RUN_INSTALLER="bash $INSTALLER"
 SHA256="$INSTALLER.sha256"
 INSTALLER_URL="$BASE_URL$INSTALLER"
