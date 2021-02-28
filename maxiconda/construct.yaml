@@ -5,7 +5,7 @@ name: {{ name }}
 version: {{ version }}
 company: Semi-ATE
 
-channels: &id1 
+channels:
   # specifying the channel with the full URL adds two channels
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
@@ -13,11 +13,16 @@ channels: &id1
   - Semi-ATE
 
 write_condarc: True
-conda_default_channels: *id1
 # keep pkgs for space-saving implications for hardlinks when create new environments
 # and keep the same with Miniconda
 keep_pkgs: True
 license_file: ../LICENSE
+
+# pre_install: pre-install.sh       # [unix]
+post_install: post-install.sh     # [unix]
+# #windows has no pre-install ...
+post_install: post-install.bat    # [win]
+# pre_uninstall: pre-uninstall.bat  # [win]
 
 specs:
 {% if name.endswith("pypy3") %}
@@ -31,3 +36,6 @@ specs:
   - pip
   - bzip2
   - miniforge_console_shortcut  # [win]
+
+  # exclude:
+#   - pip
