@@ -13,8 +13,9 @@
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
-pwd
-ls -la
-ls -laR /root/maxiconda/*
+source $CONDA_PATH/bin/activate
+conda create -n _spyder_ spyder=5.0.0a5
+conda activate _spyder_
+conda list
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
