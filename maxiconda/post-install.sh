@@ -19,7 +19,7 @@ conda info
 echo ">>>> cat /root/maxiconda/.condarc"
 cat /root/maxiconda/.condarc
 echo ">>> conda create -n _spyder_ python=3.8"
-conda create -n _spyder_ python=3.8.6
+conda create -n _spyder_ python=3.8 2>&1
 echo ">>> conda activate _spyder_"
 conda activate _spyder_
 echo ">>> conda list"
