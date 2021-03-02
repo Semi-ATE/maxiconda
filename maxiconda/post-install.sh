@@ -14,7 +14,7 @@
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 source $CONDA_PATH/bin/activate
-conda create -n _spyder_ spyder=5.0.0a5
+conda create -n _spyder_ -c conda-forge/label/beta spyder=5
 conda activate _spyder_
 conda list
 

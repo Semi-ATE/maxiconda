@@ -10,7 +10,6 @@ channels:
   # when the end user adds the channel without the full URL
   # - https://conda.anaconda.org/conda-forge
   - conda-forge
-  - conda-forge/label/beta
   - Semi-ATE
 
 write_condarc: True
