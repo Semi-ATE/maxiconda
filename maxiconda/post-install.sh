@@ -14,10 +14,16 @@
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 source $CONDA_PATH/bin/activate
-conda create -n _spyder_ starz
+echo "list of packages in base environment"
+conda list 
+echo "dry-run of removing pip"
+conda remove pip --dry-run
+echo "create empty _spyder_ environment"
+conda create -n _spyder_
 conda activate _spyder_
 conda list
 
-#-c conda-forge/label/beta spyder=5
+
+#conda install -c conda-forge/label/beta spyder=5
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
