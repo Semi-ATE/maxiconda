@@ -18,7 +18,7 @@ source $CONDA_PATH/bin/activate
 
 
 echo ">>>> mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1"
-conda infomamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1
+mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1
 echo ">>>> cat ./log"
 cat ./log
 
