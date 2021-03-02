@@ -16,13 +16,14 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<
 source $CONDA_PATH/bin/activate
 echo "list of packages in base environment"
 conda list 
-echo "dry-run of removing pip"
-conda remove pip --dry-run
+echo "dry-run of removing pip with force"
+conda remove pip --force --dry-run
 echo "create empty _spyder_ environment"
-conda create -n _spyder_
+conda create -n _spyder_ python=3.8
 conda activate _spyder_
 conda list
-
+conda install -c conda-forge/label/beta spyder=5 
+conda list
 
 #conda install -c conda-forge/label/beta spyder=5
 
