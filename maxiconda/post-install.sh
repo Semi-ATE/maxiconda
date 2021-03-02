@@ -14,17 +14,19 @@
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 source $CONDA_PATH/bin/activate
-echo ">>> conda create -n _spyder_ python=3.8"
-conda create -n _spyder_ python=3.8
-echo ">>> conda activate _spyder_"
-conda activate _spyder_
-echo ">>> conda list"
-conda list
-echo ">>> conda install -c conda-forge/label/beta spyder=5"
-conda install -c conda-forge/label/beta spyder=5 
-echo ">>> conda list"
-conda list
-echo ">>> conda env list"
-conda env list
+echo ">>>> conda info"
+conda info
+# echo ">>> conda create -n _spyder_ python=3.8"
+# conda create -n _spyder_ python=3.8
+# echo ">>> conda activate _spyder_"
+# conda activate _spyder_
+# echo ">>> conda list"
+# conda list
+# echo ">>> conda install -c conda-forge/label/beta spyder=5"
+# conda install -c conda-forge/label/beta spyder=5 
+# echo ">>> conda list"
+# conda list
+# echo ">>> conda env list"
+# conda env list
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"

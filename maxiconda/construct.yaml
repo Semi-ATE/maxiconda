@@ -27,7 +27,7 @@ header_image_text: maxiconda      # [win]
 # signing_identity_name: Semi-ATE   # [osx]
 
 specs:
-{% if name.endswith("pypy3") %}
+{% if name.endswith("pypy") %}
   - python 3.6.* *_pypy
 {% else %}
   - python 3.8.*    # [not (osx and arm64)]
