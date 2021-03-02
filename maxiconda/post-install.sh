@@ -11,4 +11,9 @@
 # environments with the respectively named conda metapackages from the Semi-ATE channel.
 #
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>hallelujah<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+
+conda list
+conda info
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
