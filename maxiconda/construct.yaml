@@ -30,7 +30,7 @@ specs:
 {% if name.endswith("pypy") %}
   - python 3.6.* *_pypy
 {% else %}
-  - python 3.8.*    # [not (osx and arm64)]
+  - python 3.8.6    # [not (osx and arm64)]
   - python 3.9.*    # [osx and arm64]
 {% endif %}
   - mamba
