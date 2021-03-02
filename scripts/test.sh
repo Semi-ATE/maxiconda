@@ -56,6 +56,7 @@ echo "***** Test the installer *****"
 
 echo "***** list environments *****"
 conda env list
+conda list -n _spyder_
 
 # 2020/09/15: Running conda update switches from pypy to cpython. Not sure why
 # echo "***** Run conda update *****"
