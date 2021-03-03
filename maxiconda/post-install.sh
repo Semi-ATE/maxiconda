@@ -14,15 +14,24 @@
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 source $CONDA_PATH/bin/activate
-conda config --append channels Semi-ATE
-conda config --set channel_priority strict
+#conda config --set channel_priority strict
+echo ">>>>> conda info"
+conda info 
 
-echo ">>>> conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1"
-conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
-echo ">>>> cat ./log"
-cat ./log
-echo ">>>> conda config --show"
-conda config --show
+
+# mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y
+
+
+
+# conda config --append channels Semi-ATE
+# conda config --set channel_priority strict
+
+# echo ">>>> conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1"
+# conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
+# echo ">>>> cat ./log"
+# cat ./log
+# echo ">>>> conda config --show"
+# conda config --show
 
 
 
