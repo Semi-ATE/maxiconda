@@ -2,9 +2,9 @@
 
 set -ex
 
-echo "***** Start: Testing Maxiforge installer *****"
+echo "***** Start: Testing Maxiconda installer *****"
 
-export CONDA_PATH="$HOME/maxiforge"
+export CONDA_PATH="$HOME/maxiconda"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -17,15 +17,15 @@ if [[ "$(uname)" == MINGW* ]]; then
 else
    EXT=sh;
 fi
-INSTALLER_PATH=$(find build/ -name "*forge*.$EXT" | head -n 1)
+INSTALLER_PATH=$(find build/ -name "maxiconda*.$EXT" | head -n 1)
 
-echo "***** Run the installer *****"
 chmod +x $INSTALLER_PATH
 if [[ "$(uname)" == MINGW* ]]; then
+  echo "***** Run the installer *****"
   echo "start /wait \"\" ${INSTALLER_PATH} /InstallationType=JustMe /RegisterPython=0 /S /D=$(cygpath -w $CONDA_PATH)" > install.bat
   cmd.exe /c install.bat
 
-  echo "***** Setup conda *****"
+  echo "***** activate conda *****"
   source $CONDA_PATH/Scripts/activate
   conda.exe config --set show_channel_urls true
 
@@ -41,9 +41,10 @@ if [[ "$(uname)" == MINGW* ]]; then
   conda.exe install r-base --yes --quiet
   conda.exe list
 else
+  echo "***** Run the installer *****"
   bash $INSTALLER_PATH -b -p $CONDA_PATH
 
-  echo "***** Setup conda *****"
+  echo "***** activate conda *****"
   source $CONDA_PATH/bin/activate
 
   echo "***** Print conda info *****"
@@ -51,6 +52,14 @@ else
   conda list
 fi
 
+echo "***** Test the installer *****"
+
+echo "***** conda *****"
+conda info
+
+echo "***** list environments *****"
+conda env list
+# conda list -n _spyder_
 
 # 2020/09/15: Running conda update switches from pypy to cpython. Not sure why
 # echo "***** Run conda update *****"
@@ -58,10 +67,10 @@ fi
 
 echo "***** Python path *****"
 python -c "import sys; print(sys.executable)"
-python -c "import sys; assert 'maxiforge' in sys.executable"
+python -c "import sys; assert 'maxiconda' in sys.executable"
 
 echo "***** Print system informations from Python *****"
-python -c "print('Hello Maxiforge !')"
+python -c "print('Hello Maxiconda !')"
 python -c "import platform; print(platform.architecture())"
 python -c "import platform; print(platform.system())"
 python -c "import platform; print(platform.machine())"

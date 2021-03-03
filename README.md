@@ -19,7 +19,7 @@ The 'raison d'être' of this installer is that the [Anaconda](https://docs.anaco
 
 `miniconda` and `miniforge` where designed with CI in mind, `Anaconda` was designed with the **user** in mind, if we put this in a table, it becomes clear where `maxiconda` fits in :
 
- ![conda table](https://github.com/Semi-ATE/maxiconda/blob/main/conda_table.png)
+ ![installer table](https://github.com/Semi-ATE/maxiconda/blob/main/installer_table.png)
 
 maxiconda is thus the equivalent of `anaconda` when we want to use `conda-forge` as a base channel.
 

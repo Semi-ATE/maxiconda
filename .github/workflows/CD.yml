@@ -6,121 +6,120 @@ on:
 
 jobs:
   build:
-    name: ${{ matrix.MAXIFORGE_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
+    name: ${{ matrix.MAXICONDA_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: windows-latest
-            ARCH: x86_64
-            MAXIFORGE_NAME: "maxiforge"
-            OS_NAME: "Windows"
-
-          # - os: macos-latest
-          #   ARCH: arm64
-          #   MAXIFORGE_NAME: "maxiforge"
-          #   OS_NAME: "MacOSX"
+          # - os: windows-latest
+          #   ARCH: x86_64
+          #   MAXICONDA_NAME: "maxiconda"
+          #   OS_NAME: "Windows"
 
           # - os: macos-latest
           #   ARCH: x86_64
-          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   MAXICONDA_NAME: "maxiconda"
           #   OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: arm64
-          #   MAXIFORGE_NAME: "maxiforge-pypy"
+          #   MAXICONDA_NAME: "maxiconda"
           #   OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: x86_64
-          #   MAXIFORGE_NAME: "maxiforge"
+          #   MAXICONDA_NAME: "maxiconda-pypy"
           #   OS_NAME: "MacOSX"
 
-          - os: ubuntu-latest
-            ARCH: aarch64
-            DOCKER_ARCH: arm64v8
-            DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MAXIFORGE_NAME: "maxiforge"
-            OS_NAME: "Linux"
+          # - os: macos-latest
+          #   ARCH: arm64
+          #   MAXICONDA_NAME: "maxiconda-pypy"
+          #   OS_NAME: "MacOSX"
+
+          # - os: ubuntu-latest
+          #   ARCH: aarch64
+          #   DOCKER_ARCH: arm64v8
+          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
+          #   MAXICONDA_NAME: "maxiconda"
+          #   OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: x86_64
             DOCKER_ARCH: amd64
             DOCKERIMAGE: condaforge/linux-anvil-comp7
-            MAXIFORGE_NAME: "maxiforge"
+            MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: ppc64le
-            DOCKER_ARCH: ppc64le
-            DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MAXIFORGE_NAME: "maxiforge"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: ppc64le
+          #   DOCKER_ARCH: ppc64le
+          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
+          #   MAXICONDA_NAME: "maxiconda"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: aarch64
-            DOCKER_ARCH: arm64v8
-            DOCKERIMAGE: condaforge/linux-anvil-aarch64
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: aarch64
+          #   DOCKER_ARCH: arm64v8
+          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
+          #   MAXICONDA_NAME: "maxiconda-pypy"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: x86_64
-            DOCKER_ARCH: amd64
-            DOCKERIMAGE: condaforge/linux-anvil-comp7
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: x86_64
+          #   DOCKER_ARCH: amd64
+          #   DOCKERIMAGE: condaforge/linux-anvil-comp7
+          #   MAXICONDA_NAME: "maxiconda-pypy"
+          #   OS_NAME: "Linux"
 
-          - os: ubuntu-latest
-            ARCH: ppc64le
-            DOCKER_ARCH: ppc64le
-            DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-            MAXIFORGE_NAME: "maxiforge-pypy"
-            OS_NAME: "Linux"
+          # - os: ubuntu-latest
+          #   ARCH: ppc64le
+          #   DOCKER_ARCH: ppc64le
+          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
+          #   MAXICONDA_NAME: "maxiconda-pypy"
+          #   OS_NAME: "Linux"
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Windows specific setup
+    - name: Windows-only setup
       uses: conda-incubator/setup-miniconda@v2
       with:
         miniconda-version: "latest"
       if: contains(matrix.OS_NAME, 'Windows')
 
-    - name: Build and test maxiforge
+    - name: Build and test maxiconda
       env:
         ARCH: ${{ matrix.ARCH }}
-        MAXIFORGE_NAME: ${{ matrix.MAXIFORGE_NAME }}
+        MAXICONDA_NAME: ${{ matrix.MAXICONDA_NAME }}
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
       run: |
-        export MAXIFORGE_VERSION=${GITHUB_REF##*/}
         if [[ "$OS_NAME" == "Linux" ]]; then
-          bash build_maxiforge_linux.sh;
+          bash build_maxiconda_linux.sh;
           EXT=sh
         fi
         if [[ "$OS_NAME" == "MacOSX" ]]; then
-          bash build_maxiforge_macos.sh;
+          bash build_maxiconda_macos.sh;
           EXT=sh
         fi
         if [[ "$OS_NAME" == "Windows" ]]; then
           source /c/Miniconda3/Scripts/activate;
-          source build_maxiforge_windows.sh;
+          source build_maxiconda_windows.sh;
           EXT=exe
         fi
       shell: bash
 
-    - name: Add maxiforge.sh
-      run: cp maxiforge.sh build/
+    - name: Add maxiconda.sh
+      run: cp maxiconda.sh build/
 
-    - name: Upload maxiforge to release assets
+    - name: Upload maxiconda to release assets
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: build/maxiforge*
+        file: build/maxiconda*
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
