@@ -6,11 +6,7 @@ version: {{ version }}
 company: Semi-ATE
 
 channels:
-  # specifying the channel with the full URL adds two channels
-  # when the end user adds the channel without the full URL
-  # - https://conda.anaconda.org/conda-forge
   - conda-forge
-  - Semi-ATE
 
 write_condarc: True
 keep_pkgs: True
@@ -24,8 +20,6 @@ header_image: header_image.png    # [win]
 icon_image: icon_image.png        # [win]
 header_image_text: maxiconda      # [win]
 
-# signing_identity_name: Semi-ATE   # [osx]
-
 specs:
 {% if name.endswith("pypy") %}
   - python 3.6.* *_pypy
@@ -38,7 +32,3 @@ specs:
   - pip
   - bzip2
   - miniforge_console_shortcut  # [win]
-
-# pip needs excluding after installation (post-install script)
-# exclude:
-#   - pip

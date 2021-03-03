@@ -14,15 +14,25 @@
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
 source $CONDA_PATH/bin/activate
-# don't forget to uninstall pip from the base environment (with --force to leave the rest?)
+conda config --append channels Semi-ATE
+conda config --set channel_priority strict
 
-echo ">>>> mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1"
-mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
+echo ">>>> conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1"
+conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
 echo ">>>> cat ./log"
 cat ./log
-echo ">>>>> mamba create -n maxiconda starz -y > ./log 2>&1"
-mamba create -n maxiconda starz -y > ./log 2>&1
-echo ">>>> cat ./log"
-cat ./log
+echo ">>>> conda config --show"
+conda config --show
+
+
+
+# echo ">>>> mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1"
+# mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
+# echo ">>>> cat ./log"
+# cat ./log
+# echo ">>>>> mamba create -n maxiconda starz -y > ./log 2>&1"
+# mamba create -n maxiconda starz -y > ./log 2>&1
+# echo ">>>> cat ./log"
+# cat ./log
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
