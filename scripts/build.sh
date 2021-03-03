@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 set -xe
-
 echo "***** Start: Building Maxiconda installer *****"
+echo ">>> MAXICONDA_VERSION = $MAXICONDA_VERSION"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -41,6 +41,7 @@ if [[ $(uname -r) != "$ARCH" ]]; then
 fi
 
 echo "***** Construct the installer *****"
+echo "constructor $TEMP_DIR/maxiconda/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS"
 constructor $TEMP_DIR/maxiconda/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
 
 echo "***** Generate installer hash *****"
