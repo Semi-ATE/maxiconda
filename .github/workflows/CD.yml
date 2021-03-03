@@ -93,7 +93,7 @@ jobs:
       env:
         ARCH: ${{ matrix.ARCH }}
         MAXICONDA_NAME: ${{ matrix.MAXICONDA_NAME }}
-        MAXICONDA_VERSION: ${{ GITHUB_REF#refs/*/ }}
+        MAXICONDA_VERSION: ${{ github.ref }}
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
