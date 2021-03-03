@@ -82,6 +82,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
+    - name: Tag to version
+      id: tag2version
+      run: echo ::set-output name=version::${GITHUB_REF#refs/*/}
 
     - name: Windows-only setup
       uses: conda-incubator/setup-miniconda@v2
@@ -93,7 +97,7 @@ jobs:
       env:
         ARCH: ${{ matrix.ARCH }}
         MAXICONDA_NAME: ${{ matrix.MAXICONDA_NAME }}
-        MAXICONDA_VERSION: ${{ github.ref }}
+        MAXICONDA_VERSION: ${{ steps.tag2version.outputs.version }}
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
