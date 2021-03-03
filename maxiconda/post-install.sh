@@ -17,7 +17,10 @@ source $CONDA_PATH/bin/activate
 #conda config --set channel_priority strict
 echo ">>>>> conda info"
 conda info 
-
+echo ">>>>> conda config --get channels"
+conda config --get channels
+echo ">>>>> conda config --show channel_priority"
+conda config --show channel_priority
 
 # mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y
 
