@@ -116,11 +116,9 @@ jobs:
     - name: Add maxiconda.sh
       run: cp maxiconda.sh build/
 
-    - name: Upload maxiconda to release assets
-      uses: svenstaro/upload-release-action@v2
+    - name: Upload assets to a Release
+      uses: AButler/upload-release-assets@v2.0
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: build/maxiconda*
-        tag: ${{ github.ref }}
-        overwrite: true
-        file_glob: true
+        files: build/maxiconda* 
+        release-tag: ${{ github.ref }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
