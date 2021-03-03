@@ -1,5 +1,5 @@
-{% set version = os.environ.get("MAXIFORGE_VERSION", "0.0.0") %}
-{% set name = os.environ.get("MAXIFORGE_NAME", "maxiconda") %}
+{% set version = os.environ.get("MAXICONDA_VERSION", "0.0.0") %}
+{% set name = os.environ.get("MAXICONDA_NAME", "broken") %}
 
 name: {{ name }}
 version: {{ version }}
