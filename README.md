@@ -1,18 +1,16 @@
 # maxiconda
 
-A one-stop installer purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython) or [PyPy](https://en.wikipedia.org/wiki/PyPy)), [Jupyter](https://jupyter.org/) and [R](https://www.r-project.org/) for users.
+[Cross platform](https://en.wikipedia.org/wiki/Cross-platform_software) [conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) [installer](https://en.wikipedia.org/wiki/Installation_(computer_programs)#Installer) purely based on [conda-forge](https://conda-forge.org/) with [Python](https://www.python.org/) ([CPython](https://en.wikipedia.org/wiki/CPython) or [PyPy](https://en.wikipedia.org/wiki/PyPy)) and [R](https://www.r-project.org/) for users. 
 
 [![GitHub](https://img.shields.io/github/license/Semi-ATE/maxiconda?color=black)](https://github.com/Semi-ATE/maxiconda/blob/main/LICENSE)
 
-[![CI](https://github.com/Semi-ATE/DT/workflows/CI/badge.svg?branch=main)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACI)
+[![CI](https://github.com/Semi-ATE/maxiconda/workflows/CI/badge.svg?branch=main)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACI)
 [![CD](https://github.com/Semi-ATE/maxiconda/workflows/CD/badge.svg)](https://github.com/Semi-ATE/maxiconda/actions?query=workflow%3ACD)
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Semi-ATE/maxiconda?color=blue&label=GitHub&sort=semver)](https://github.com/Semi-ATE/maxiconda/releases/latest)
-[![PyPI](https://img.shields.io/pypi/v/maxiconda?color=blue&label=PyPI)](https://pypi.org/project/maxiconda/)
-![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/maxiconda?color=blue&label=conda-forge)
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/Semi-ATE/maxiconda/latest)](https://github.com/Semi-ATE/maxiconda)
 
-[![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/DT)](https://github.com/Semi-ATE/maxiconda/issues)
+[![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/maxiconda)](https://github.com/Semi-ATE/maxiconda/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/maxiconda)](https://github.com/Semi-ATE/maxiconda/pulls)
 
 # raison d'être
@@ -41,9 +39,9 @@ Based on your OS, download the installer from the table below :
 |:--------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|
 | Windows | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.msi)        |
 | Linux   | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
-| MacOS   | x86_64 / M1⁽¹⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.dmg) |
+| MacOS⁽¹⁾ | x86_64                    | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
 
-⁽¹⁾ Experimental
+⁽¹⁾ Limited to macOS Catalina (10.15) for now Big Sur / M1 support will come when GitHub Actions supports it.
 
 For (re)installation, run the installer on your local machine :
 
@@ -58,5 +56,5 @@ Note that PyPy is only supported under Linux an MacOS, and to use it run the ins
 
  ![_spyder_](https://img.shields.io/badge/packages-__spyder__-orange)
 
- ![maxiconda](https://img.shields.io/badge/packages-maxiconda-green)
-
+ ![maxiconda](https://img.shields.io/conda/pn/Semi-ATE/maxiconda)
+ 
