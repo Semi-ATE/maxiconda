@@ -118,7 +118,7 @@ jobs:
       shell: bash
 
     - name: Upload release assets
-      uses: alexellis/upload-assets@v1
+      uses: alexellis/upload-assets@0.2.3
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
@@ -146,7 +146,7 @@ jobs:
         token: ${{ github.token }}
 
     - name: Upload release assets
-      uses: alexellis/upload-assets@v1
+      uses: alexellis/upload-assets@0.2.3
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
