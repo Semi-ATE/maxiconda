@@ -3,7 +3,7 @@
 
 name: {{ name }}
 version: {{ version }}
-company: Semi-ATE
+company: conda-forge
 
 channels:
   - conda-forge
@@ -29,6 +29,7 @@ specs:
 {% endif %}
   - mamba
   - conda
+  - git
   - pip
   - bzip2
   - miniforge_console_shortcut  # [win]
