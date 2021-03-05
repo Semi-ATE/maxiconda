@@ -2,7 +2,7 @@
 
 set -xe
 echo "***** Start: Building Maxiconda installer *****"
-echo ">>> MAXICONDA_VERSION = $MAXICONDA_VERSION"
+echo "build.sh >>> MAXICONDA_VERSION = $MAXICONDA_VERSION"
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
