@@ -104,9 +104,9 @@ jobs:
       run: |
         echo ">>>>> CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
         if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-          export MAXIFORGE_VERSION=${GITHUB_REF##*/};
-          echo "----> '$MAXIFORGE_VERSION'"
+          export MAXICONDA_VERSION=${GITHUB_REF##*/};
         fi
+        echo "<<<<< CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
           EXT=sh
