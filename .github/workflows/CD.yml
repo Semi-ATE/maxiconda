@@ -119,6 +119,7 @@ jobs:
           source /c/Miniconda3/Scripts/activate;
           source build_maxiconda_windows.sh;
           EXT=exe
+          cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME-$OS_NAME-$ARCH.$EXT
         fi
       shell: bash
 
@@ -140,15 +141,6 @@ jobs:
       run: |
         mkdir build
         cp maxiconda.sh build/
-
-    - name: Get/rename windows asset 
-      uses: dsaltares/fetch-gh-release-asset@master
-      with:
-        repo: "Semi-ATE/maxiconda"
-        version: "latest"
-        file: "maxiconda-*-Windows-x86_64.exe"
-        target: "build/maxiconda.exe"
-        token: ${{ github.token }}
 
     - name: Upload release assets
       uses: alexellis/upload-assets@0.2.3
