@@ -102,6 +102,7 @@ jobs:
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
       run: |
+        echo ">>>>> CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
           EXT=sh

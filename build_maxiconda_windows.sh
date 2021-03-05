@@ -1,3 +1,4 @@
+echo "build_maxiconda_windows.sh >>> MAXICONDA_VERSION = $MAXICONDA_VERSION"
 conda install posix --yes
 echo "MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
 echo "MAXICONDA_NAME = '$MAXICONDA_NAME'"
