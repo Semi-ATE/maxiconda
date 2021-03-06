@@ -83,10 +83,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    - name: Tag to version
-      id: tag2version
-      run: echo ::set-output name=version::${GITHUB_REF#refs/*/}
-
     - name: Windows-only setup
       uses: conda-incubator/setup-miniconda@v2
       with:
@@ -97,7 +93,6 @@ jobs:
       env:
         ARCH: ${{ matrix.ARCH }}
         MAXICONDA_NAME: ${{ matrix.MAXICONDA_NAME }}
-        MAXICONDA_VERSION: ${{ steps.tag2version.outputs.version }}
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
@@ -118,6 +113,7 @@ jobs:
         if [[ "$OS_NAME" == "Windows" ]]; then
           source /c/Miniconda3/Scripts/activate;
           source build_maxiconda_windows.sh;
+          cp build/$MINIFORGE_NAME-*-$OS_NAME-$ARCH.$EXT build/$MINIFORGE_NAME-$OS_NAME-$ARCH.$EXT
           EXT=exe
           cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME.$EXT
         fi
