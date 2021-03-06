@@ -51,4 +51,4 @@ As [spyder](https://www.spyder-ide.org/) is base on Qt the installer for `Linux/
 
 ### ⁽²⁾ Experimental
 
-The installer for MacOS/M1 compiles, but is not tested on [Big Sur](https://www.apple.com/macos/big-sur/) yet.
+The installer for `MacOS/M1` is not tested on a **real** '[Big Sur](https://www.apple.com/macos/big-sur/)' yet.
