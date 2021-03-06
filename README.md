@@ -33,11 +33,11 @@ It is also organized such that, when starting a terminal, the `maxiconda` enviro
 
 ## Support & Installation
 
-| OS       |Architecture                | Python | Download                                                                             | Install |
+| OS       |Architectures                | Python | Download                                                                             | Install |
 |:---------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|:----:|
-| ![https://github.com/Semi-ATE/maxiconda/blob/main/doc/Windows.png] Windows  | x86_64                     |CPython         | [![maxiconda-Windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](https://www.youtube.com/watch?v=DKL4X0PZz7M) |
-| ![https://github.com/Semi-ATE/maxiconda/blob/main/doc/Linux.png] Linux    | x86_64 / aarch64⁽¹⁾ / ppc64le | CPython / PyPy | [![maxiconda-Linux](https://img.shields.io/badge/maxiconda%20installer-Linux-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](https://www.youtube.com/watch?v=k_obf1BTBtE) |
-| ![https://github.com/Semi-ATE/maxiconda/blob/main/doc/MacOS.png] MacOS    | x86_64 / M1⁽²⁾             | CPython / PyPy | [![maxiconda-MacOS](https://img.shields.io/badge/maxiconda%20installer-MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](https://www.youtube.com/watch?v=8hVaAnFxtAY) |
+| ![Windows Logo](doc/Windows.png) Windows  | x86_64                     |CPython         | [![maxiconda-Windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        | [![Windows Install video](doc/PlayVideo.png)](https://www.youtube.com/watch?v=DKL4X0PZz7M) |
+| ![Linux Logo](doc/Linux.png) Linux    | x86_64 / aarch64⁽¹⁾ / ppc64le | CPython / PyPy | [![maxiconda-Linux](https://img.shields.io/badge/maxiconda%20installer-Linux-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Linux Install video](doc/PlayVideo.png)](https://www.youtube.com/watch?v=k_obf1BTBtE) |
+| ![MacOS Logo](doc/MacOS.png) MacOS    | x86_64 / M1⁽²⁾             | CPython / PyPy | [![maxiconda-MacOS](https://img.shields.io/badge/maxiconda%20installer-MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![MacOS Install video](doc/PlayVideo.png)](https://www.youtube.com/watch?v=8hVaAnFxtAY) |
 
 ### ⁽¹⁾ Work In Progress
 
@@ -51,4 +51,4 @@ As [spyder](https://www.spyder-ide.org/) is base on Qt the installer for `Linux/
 
 ### ⁽²⁾ Experimental
 
-The installer for MacOS/M1 compiles, but is not tested on [Big Sur](https://www.apple.com/macos/big-sur/) yet.
+The installer for `MacOS/M1` is not tested on a **real** '[Big Sur](https://www.apple.com/macos/big-sur/)' yet.
