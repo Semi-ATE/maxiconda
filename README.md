@@ -35,13 +35,13 @@ It is also organized such that, when starting a terminal, the `maxiconda` enviro
 
 Based on your OS, download the installer from the table below :
 
-| OS      |Architecture                | Python | Download                                                                             |
-|:--------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|
-| Windows | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        |
-| Linux   | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
-| MacOS⁽¹⁾ | x86_64                    | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
+| OS       |Architecture                | Python | Download                                                                             |
+|:---------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|
+| Windows  | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        |
+| Linux    | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
+| MacOS    | x86_64 / M1⁽¹⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) |
 
-⁽¹⁾ Limited to macOS Catalina (10.15) for now Big Sur / M1 support will come when GitHub Actions supports it.
+⁽¹⁾ experimental
 
 For (re)installation, run the installer on your local machine :
 
