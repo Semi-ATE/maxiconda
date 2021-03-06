@@ -36,16 +36,19 @@ It is also organized such that, when starting a terminal, the `maxiconda` enviro
 | OS       |Architecture                | Python | Download                                                                             | Install |
 |:---------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|:----:|
 | Windows  | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
-| Linux    | x86_64 / aarch64 / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
-| MacOS    | x86_64 / M1⁽¹⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
+| Linux    | x86_64 / aarch64⁽¹⁾ / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
+| MacOS    | x86_64 / M1⁽²⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
 
-⁽¹⁾ experimental
+### ⁽¹⁾ Work In Progress
 
-## Environments and their packages
+The `conda-forge` [channel](https://anaconda.org/search?q=pyqt) currently only holds a (very old) `pyqt=5.9.2` and an (old & semi-broken) `pyqt=5.12.3`, none of which supports `aarch64` :sob:
 
- ![base](https://img.shields.io/badge/packages-base-red)
+On January 4ᵗʰ 2021 [Riverbank Computing Ltd.](https://riverbankcomputing.com/) moved on to the 6-series of Qt and the last release in the 5-series to date is [5.15.3](https://riverbankcomputing.com/news/PyQt_v5.15.3_Released).
 
- ![_spyder_](https://img.shields.io/badge/packages-__spyder__-orange)
+An effort to bring `pyqt=5.15.3` to `conda-forge` is [underway](https://github.com/conda-forge/qt-feedstock) and the ETA is mid 2021. 
 
- ![maxiconda](https://img.shields.io/conda/pn/Semi-ATE/maxiconda) 
- 
+As [spyder](https://www.spyder-ide.org/) is base on Qt the installer for `Linux/aarch64` will thus (currently) **only** yield the `base` and `maxiconda` environments.  
+
+### ⁽²⁾ Experimental
+
+The installer for MacOS/M1 compiles, but is not tested on [Big Sur](https://www.apple.com/macos/big-sur/) yet.
