@@ -13,7 +13,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/Semi-ATE/maxiconda)](https://github.com/Semi-ATE/maxiconda/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Semi-ATE/maxiconda)](https://github.com/Semi-ATE/maxiconda/pulls)
 
-# raison d'être
+## raison d'être
 
 The 'raison d'être' of this installer is that the [Anaconda](https://docs.anaconda.com/anaconda/install/) installer **does not support** [aarch64](https://en.wikipedia.org/wiki/AArch64) processors, neighter does the [miniconda]() installer out of the box as both are based on the [anaconda channel](). There is the [miniforge](https://github.com/conda-forge/miniforge) installer though, however this one (as miniconda) installs a (very) basic `base` environment, and leaves it up to the user to do some more command line magic to get things going.
 
@@ -31,7 +31,7 @@ maxiconda is also installing things a bit different then anaconda in that it :
 
 It is also organized such that, when starting a terminal, the `maxiconda` environment is activated (to prevent accidental screwing up the `base` environment 😏)
 
-# Support & Installation
+## Support & Installation
 
 Based on your OS, download the installer from the table below :
 
@@ -50,7 +50,7 @@ For (re)installation, run the installer on your local machine :
 
 Note that PyPy is only supported under Linux an MacOS, and to use it run the installation script as follows : `./maxiconda.sh --pypy`
 
-# Environments and their packages
+## Environments and their packages
 
  ![base](https://img.shields.io/badge/packages-base-red)
 
