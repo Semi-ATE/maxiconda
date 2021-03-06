@@ -35,9 +35,9 @@ It is also organized such that, when starting a terminal, the `maxiconda` enviro
 
 | OS       |Architecture                | Python | Download                                                                             | Install |
 |:---------|:---------------------------|:--------------:|:-------------------------------------------------------------------------------------|:----:|
-| Windows  | x86_64                     |CPython         | [![maxiconda-windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
-| Linux    | x86_64 / aarch64⁽¹⁾ / ppc64le | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
-| MacOS    | x86_64 / M1⁽²⁾             | CPython / PyPy | [![maxiconda-linuxmac](https://img.shields.io/badge/maxiconda%20installer-Linux&amp;MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)]() |
+| ![doc/Windows.png] Windows  | x86_64                     |CPython         | [![maxiconda-Windows](https://img.shields.io/badge/maxiconda%20installer-Windows-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.exe)        | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](doc/maxiconda4Windows.mp4) |
+| ![doc/Linux.png] Linux    | x86_64 / aarch64⁽¹⁾ / ppc64le | CPython / PyPy | [![maxiconda-Linux](https://img.shields.io/badge/maxiconda%20installer-Linux-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](doc/maxiconda4Linux.mp4) |
+| ![doc/MacOS.png] MacOS    | x86_64 / M1⁽²⁾             | CPython / PyPy | [![maxiconda-MacOS](https://img.shields.io/badge/maxiconda%20installer-MacOS-blue)](https://github.com/Semi-ATE/maxiconda/releases/latest/download/maxiconda.sh) | [![Install video](https://github.com/Semi-ATE/maxiconda/blob/main/doc/PlayVideo.png)](doc/maxiconda4MacOS.mp4) |
 
 ### ⁽¹⁾ Work In Progress
 
