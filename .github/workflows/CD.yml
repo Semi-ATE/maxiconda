@@ -99,8 +99,9 @@ jobs:
       run: |
         echo ">>>>> CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
         if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-          export MAXIFORGE_VERSION=${GITHUB_REF##*/};
+          export MAXICONDA_VERSION=${GITHUB_REF##*/};
         fi
+        echo "<<<<< CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
           EXT=sh
@@ -114,6 +115,7 @@ jobs:
           source build_maxiconda_windows.sh;
           cp build/$MINIFORGE_NAME-*-$OS_NAME-$ARCH.$EXT build/$MINIFORGE_NAME-$OS_NAME-$ARCH.$EXT
           EXT=exe
+          cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME.$EXT
         fi
       shell: bash
 
@@ -135,15 +137,6 @@ jobs:
       run: |
         mkdir build
         cp maxiconda.sh build/
-
-    - name: Get/rename windows asset 
-      uses: dsaltares/fetch-gh-release-asset@master
-      with:
-        repo: "Semi-ATE/maxiconda"
-        version: "latest"
-        file: "maxiconda-*-Windows-x86_64.exe"
-        target: "build/maxiconda.exe"
-        token: ${{ github.token }}
 
     - name: Upload release assets
       uses: alexellis/upload-assets@0.2.3
