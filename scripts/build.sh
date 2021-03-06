@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 set -xe
-echo "***** Start: Building Maxiconda installer *****"
-echo "build.sh >>> MAXICONDA_VERSION = $MAXICONDA_VERSION"
+echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
+
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
