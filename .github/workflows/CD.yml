@@ -112,9 +112,8 @@ jobs:
         if [[ "$OS_NAME" == "Windows" ]]; then
           source /c/Miniconda3/Scripts/activate;
           source build_maxiconda_windows.sh;
-          cp build/$MINIFORGE_NAME-*-$OS_NAME-$ARCH.$EXT build/$MINIFORGE_NAME-$OS_NAME-$ARCH.$EXT
-          EXT=exe
           cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME.$EXT
+          EXT=exe
         fi
       shell: bash
 
