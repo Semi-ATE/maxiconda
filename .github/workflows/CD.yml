@@ -119,7 +119,7 @@ jobs:
           source /c/Miniconda3/Scripts/activate;
           source build_maxiconda_windows.sh;
           EXT=exe
-          cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME-$OS_NAME-$ARCH.$EXT
+          cp build/$MAXICONDA_NAME-*-$OS_NAME-$ARCH.$EXT build/$MAXICONDA_NAME.$EXT
         fi
       shell: bash
 
