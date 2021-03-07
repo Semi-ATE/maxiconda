@@ -45,7 +45,7 @@ The `conda-forge` [channel](https://anaconda.org/search?q=pyqt) currently only h
 
 On January 4ᵗʰ 2021 [Riverbank Computing Ltd.](https://riverbankcomputing.com/) moved on to the 6-series of Qt and the last release in the 5-series to date is [5.15.3](https://riverbankcomputing.com/news/PyQt_v5.15.3_Released).
 
-An effort to bring `pyqt=5.15.3` to `conda-forge` is [underway](https://github.com/conda-forge/qt-feedstock) at the same time support for `aarch64` (and thus also M1) [will be added](https://github.com/conda-forge/pyqt-feedstock/pull/99). The ETA is mid 2021. 
+An effort to bring `pyqt=5.15.3` to `conda-forge` is [underway](https://github.com/conda-forge/qt-feedstock) at the same time support for `aarch64` (and thus I recon also M1) [will be added](https://github.com/conda-forge/pyqt-feedstock/pull/99). The ETA is mid 2021. 
 
 As [spyder](https://www.spyder-ide.org/) is base on Qt, installing on non `x86_64` systems will thus (currently) **only** yield the `base` and `maxiconda` environments.  
 
