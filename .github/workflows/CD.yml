@@ -52,13 +52,6 @@ jobs:
             OS_NAME: "Linux"
 
           # - os: ubuntu-latest
-          #   ARCH: ppc64le
-          #   DOCKER_ARCH: ppc64le
-          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-          #   MAXICONDA_NAME: "maxiconda"
-          #   OS_NAME: "Linux"
-
-          # - os: ubuntu-latest
           #   ARCH: aarch64
           #   DOCKER_ARCH: arm64v8
           #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
@@ -71,13 +64,6 @@ jobs:
             DOCKERIMAGE: condaforge/linux-anvil-comp7
             MAXICONDA_NAME: "maxiconda-pypy"
             OS_NAME: "Linux"
-
-          # - os: ubuntu-latest
-          #   ARCH: ppc64le
-          #   DOCKER_ARCH: ppc64le
-          #   DOCKERIMAGE: condaforge/linux-anvil-ppc64le
-          #   MAXICONDA_NAME: "maxiconda-pypy"
-          #   OS_NAME: "Linux"
 
     steps:
     - name: Checkout
