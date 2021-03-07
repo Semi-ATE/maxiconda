@@ -83,10 +83,7 @@ jobs:
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
       run: |
-        if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-          export MAXICONDA_VERSION=${GITHUB_REF##*/};
-        fi
-        echo "<<<<< CD : MAXICONDA_VERSION = '$MAXICONDA_VERSION'"
+        export MAXICONDA_VERSION=${GITHUB_REF##*/};
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
           EXT=sh
