@@ -13,46 +13,34 @@
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
+CPU=`uname -m`
+case $CPU in
+    "x86_64")
+        CPU_NAME="x86_64"
+        ;;
+    "aarch64")
+        CPU_NAME="aarch64"
+        ;;
+    "ppc64le")
+        CPU_NAME="ppc64le"
+        ;;
+    *)
+        printf "WOOPS: CPU '%s' is not yet implemented...\\n" $OS
+        exit 1
+        ;;
+esac
+
 source $CONDA_PATH/bin/activate
 conda config --set channel_priority strict
-
-echo ">>>>> conda info"
-conda info 
-echo ">>>>> conda config --get channels"
-conda config --get channels
-echo ">>>>> conda config --show channel_priority"
-conda config --show channel_priority
-
-echo ">>>>> mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y"
-mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y
-
-echo ">>>>> conda info"
-conda info 
-echo ">>>>> conda config --get channels"
-conda config --get channels
-echo ">>>>> conda config --show channel_priority"
-conda config --show channel_priority
-
-
 # conda config --append channels Semi-ATE
-# conda config --set channel_priority strict
 
-# echo ">>>> conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1"
-# conda create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
-# echo ">>>> cat ./log"
-# cat ./log
-# echo ">>>> conda config --show"
-# conda config --show
+if [ "$CPU" == "x86_64" ]
+then
+#   mamba create -n _spyder_ _spyder_ -y
+  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 spyder-remote-client -y
+fi
 
-
-
-# echo ">>>> mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 -y > ./log 2>&1"
-# mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 spyder-remote-client -y > ./log 2>&1
-# echo ">>>> cat ./log"
-# cat ./log
-# echo ">>>>> mamba create -n maxiconda starz -y > ./log 2>&1"
-# mamba create -n maxiconda starz -y > ./log 2>&1
-# echo ">>>> cat ./log"
-# cat ./log
+# mamba create -n maxiconda maxiconda -y
+mamba create -n maxiconda numpy
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
