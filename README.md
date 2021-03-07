@@ -25,7 +25,7 @@ The 'raison d'être' of this installer is that the [anaconda](https://docs.anaco
 
 `maxiconda` is also installing things a bit different then `anaconda` in that it :
 
-  1. Installs a small `base` environment (as miniconda and miniforge do), but as the  `conda-forge` channel is [much bigger](https://anaconda.org/conda-forge/) than the `anaconda` channel, also [mamba](https://github.com/mamba-org/mamba) is already added to the `base` environment, [git](https://anaconda.org/conda-forge/git) is always needed and ...  [ofcourse](https://www.youtube.com/watch?v=Ul79ihg41Rs) [pip](https://anaconda.org/conda-forge/pip) is removed!
+  1. Installs a small `base` environment (as miniconda and miniforge do), but as the  `conda-forge` channel is [much bigger](https://anaconda.org/conda-forge/) than the `anaconda` channel, [mamba](https://github.com/mamba-org/mamba) is added, [git](https://anaconda.org/conda-forge/git) is always needed and ...  [ofcourse](https://www.youtube.com/watch?v=Ul79ihg41Rs) [pip](https://anaconda.org/conda-forge/pip) is removed!
   2. Installs a `_spyder_` (application) environment where [spyder](https://www.spyder-ide.org/) and **all** it's dependencies (required, optional and extra) live.
   3. Installs a `maxiconda` (development) environment much like the one that `anaconda` installs in the `base` environment 😒 modified a bit, as it no longer holds spyder and it's dependencies, but **ONLY** the [spyder-kernels](https://github.com/spyder-ide/spyder-kernels) and [spyder-remote-server](https://github.com/Semi-ATE/spyder-remote) packages. Furthermore a series of extra packages are added, [see here](https://github.com/Semi-ATE/maxiconda-meta/blob/main/metapackages.xlsx) for the full- and current package list. 
 
