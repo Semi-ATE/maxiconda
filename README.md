@@ -51,4 +51,4 @@ As [spyder](https://www.spyder-ide.org/) is base on Qt, installing on non `x86_6
 
 ### ⁽²⁾ Experimental
 
-The installer for `MacOS/M1` is not tested on a **real** '[Big Sur](https://www.apple.com/macos/big-sur/)/[M1](https://www.apple.com/mac/m1/)' yet.
+The installer for `MacOS/M1` is not tested on a **real** '[Big Sur](https://www.apple.com/macos/big-sur/)/[M1](https://www.apple.com/mac/m1/)' combination yet.
