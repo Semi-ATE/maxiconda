@@ -13,28 +13,11 @@
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
-CPU=`uname -m`
-case $CPU in
-    "x86_64")
-        CPU_NAME="x86_64"
-        ;;
-    "aarch64")
-        CPU_NAME="aarch64"
-        ;;
-    "ppc64le")
-        CPU_NAME="ppc64le"
-        ;;
-    *)
-        printf "WOOPS: CPU '%s' is not yet implemented...\\n" $OS
-        exit 1
-        ;;
-esac
-
 source $CONDA_PATH/bin/activate
 conda config --set channel_priority strict
 # conda config --append channels Semi-ATE
 
-if [ "$CPU" == "x86_64" ]
+if [ `uname -m` == "x86_64" ]
 then
 #   mamba create -n _spyder_ _spyder_ -y
   mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 spyder-remote-client -y
