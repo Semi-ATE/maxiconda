@@ -15,20 +15,20 @@ jobs:
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Windows"
 
-          # - os: macos-latest
-          #   ARCH: x86_64
-          #   MAXICONDA_NAME: "maxiconda"
-          #   OS_NAME: "MacOSX"
+          - os: macos-latest
+            ARCH: x86_64
+            MAXICONDA_NAME: "maxiconda"
+            OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: arm64
           #   MAXICONDA_NAME: "maxiconda"
           #   OS_NAME: "MacOSX"
 
-          # - os: macos-latest
-          #   ARCH: x86_64
-          #   MAXICONDA_NAME: "maxiconda-pypy"
-          #   OS_NAME: "MacOSX"
+          - os: macos-latest
+            ARCH: x86_64
+            MAXICONDA_NAME: "maxiconda-pypy"
+            OS_NAME: "MacOSX"
 
           # - os: macos-latest
           #   ARCH: arm64
@@ -63,12 +63,12 @@ jobs:
           #   MAXICONDA_NAME: "maxiconda-pypy"
           #   OS_NAME: "Linux"
 
-          # - os: ubuntu-latest
-          #   ARCH: x86_64
-          #   DOCKER_ARCH: amd64
-          #   DOCKERIMAGE: condaforge/linux-anvil-comp7
-          #   MAXICONDA_NAME: "maxiconda-pypy"
-          #   OS_NAME: "Linux"
+          - os: ubuntu-latest
+            ARCH: x86_64
+            DOCKER_ARCH: amd64
+            DOCKERIMAGE: condaforge/linux-anvil-comp7
+            MAXICONDA_NAME: "maxiconda-pypy"
+            OS_NAME: "Linux"
 
           # - os: ubuntu-latest
           #   ARCH: ppc64le
