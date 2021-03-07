@@ -24,6 +24,6 @@ then
 fi
 
 # mamba create -n maxiconda maxiconda -y
-mamba create -n maxiconda numpy
+mamba create -n maxiconda numpy -y
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
