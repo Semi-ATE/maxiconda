@@ -17,7 +17,7 @@
 
 The 'raison d'être' of this installer is that the [anaconda](https://docs.anaconda.com/anaconda/install/) installer **does not support** [arm](https://en.wikipedia.org/wiki/ARM_architecture) processors, neighter does the [miniconda]() installer out of the box as both are based on the [anaconda channel](). There is the [miniforge](https://github.com/conda-forge/miniforge) installer though, however this one (as miniconda) installs a (very) basic `base` environment, and leaves it up to the user to do some more command line magic to get things going.
 
-`miniconda` and `miniforge` where designed with [CI](https://en.wikipedia.org/wiki/Continuous_integration) in mind, `anaconda` was designed with the **user** in mind, if we put this in a table, it becomes clear where `maxiconda` fits in :
+`miniconda` and `miniforge` where designed with [CI](https://en.wikipedia.org/wiki/Continuous_integration) in mind, hence the `mini` prefix, whereas `anaconda` was designed with the **user** in mind, if we put this in a table, it becomes clear where `maxiconda` fits in :
 
  ![installer table](https://github.com/Semi-ATE/maxiconda/blob/main/doc/installer_table.png)
 
