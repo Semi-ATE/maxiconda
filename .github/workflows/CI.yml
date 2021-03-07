@@ -99,5 +99,5 @@ jobs:
     - name: Upload maxiconda to Github artifact
       uses: actions/upload-artifact@v2
       with:
-        path: build/${{ matrix.MAXICONDA_NAME }}-*-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}*
+        path: build/*
         name: ${{ matrix.MAXICONDA_NAME }}-${{ matrix.OS_NAME }}-${{ matrix.ARCH }}
