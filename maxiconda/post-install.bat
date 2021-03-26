@@ -9,4 +9,6 @@
 # environments with the respectively named conda metapackages from the Semi-ATE channel.
 #
 
-ECHO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>hallelujah<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+@echo off
+setlocal enabledelayedexpansion
+echo maxclients !PYTHON_PATH! > bla.cfg
