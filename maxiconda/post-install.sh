@@ -12,7 +12,8 @@
 #
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-echo "ok" >> ~/post-install.txt
+echo "$CONDA_PATH" >> ~/post-install.txt
+ls -la $CONDA_PATH/bin >> ~/post-install.txt
 
 source $CONDA_PATH/bin/activate
 conda config --set channel_priority strict
