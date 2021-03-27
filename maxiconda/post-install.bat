@@ -11,4 +11,5 @@
 
 @echo off
 setlocal enabledelayedexpansion
-echo maxclients !PYTHON_PATH! > bla.cfg
+echo maxclients !%PREFIX%! > bla.cfg
+REM call activate ?!?

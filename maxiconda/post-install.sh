@@ -12,17 +12,15 @@
 #
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-echo "$PREFIX" >> ~/post-install.txt
-ls -la $PREFIX/bin >> ~/post-install.txt
 
 source $PREFIX/bin/activate
 conda config --set channel_priority strict
-# conda config --append channels Semi-ATE
+conda config --append channels Semi-ATE
 
 if [ `uname -m` == "x86_64" ]
 then
 #   mamba create -n _spyder_ _spyder_ -y
-  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 spyder-remote-client -y
+  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 -y
 fi
 
 # mamba create -n maxiconda maxiconda -y
