@@ -12,10 +12,10 @@
 #
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-echo "$CONDA_PATH" >> ~/post-install.txt
-ls -la $CONDA_PATH/bin >> ~/post-install.txt
+echo "$PREFIX" >> ~/post-install.txt
+ls -la $PREFIX/bin >> ~/post-install.txt
 
-source $CONDA_PATH/bin/activate
+source $PREFIX/bin/activate
 conda config --set channel_priority strict
 # conda config --append channels Semi-ATE
 
