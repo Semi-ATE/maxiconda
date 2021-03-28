@@ -19,8 +19,8 @@ conda config --append channels Semi-ATE
 
 if [ `uname -m` == "x86_64" ]
 then
-#   mamba create -n _spyder_ _spyder_ -y
-  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 -y
+#   mamba create -n _spyder_  _spyder_ -y
+  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 ffmpeg -y
 fi
 
 # mamba create -n maxiconda maxiconda -y
