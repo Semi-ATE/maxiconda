@@ -11,6 +11,8 @@
 @echo off
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
+echo %PREFIX% > c:\Users\me\maxiconda.log
+set >> c:\Users\me\maxiconda.log
 call %PREFIX%\maxiconda\Scripts\activate.bat
 call conda config --set channel_priority strict
 call conda config --append channels Semi-ATE
