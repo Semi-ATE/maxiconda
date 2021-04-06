@@ -29,8 +29,8 @@ specs:
 {% endif %}
   - mamba
   - conda
+  - conda-build
   - git
   - git-lfs
   - pip
   - bzip2
-  - miniforge_console_shortcut  # [win]

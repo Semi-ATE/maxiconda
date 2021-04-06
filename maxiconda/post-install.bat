@@ -11,16 +11,16 @@
 @echo off
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
-echo %PREFIX% > c:\Users\me\maxiconda.log
-set >> c:\Users\me\maxiconda.log
 call %PREFIX%\maxiconda\Scripts\activate.bat
 call conda config --set channel_priority strict
 call conda config --append channels Semi-ATE
 
 REM call mamba create -n _spyder_ _spyder_ -y
-call mamba create -n _spyder_ -c conda-forge/label/beta spyder=5 ffmpeg -y
+call mamba create -n _spyder_ spyder=5 ffmpeg -y
 
 REM call mamba create -n maxiconda maxiconda -y
 call mamba create -n maxiconda numpy ipython -y
+
+REM call mamba install -n base maxiconda-shortcuts -y
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
