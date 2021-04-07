@@ -17,10 +17,12 @@ source $PREFIX/bin/activate
 conda config --set channel_priority strict
 conda config --append channels Semi-ATE
 
+# add git to base here
+
 if [ `uname -m` == "x86_64" ]
 then
 #   mamba create -n _spyder_  _spyder_ -y
-  mamba create -n _spyder_  -c conda-forge/label/beta spyder=5 ffmpeg -y
+  mamba create -n _spyder_  spyder=5 ffmpeg -y
 fi
 
 # mamba create -n maxiconda maxiconda -y
