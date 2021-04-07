@@ -34,3 +34,4 @@ specs:
   - git-lfs
   - pip
   - bzip2
+  - miniforge_console_shortcut  # [win]
