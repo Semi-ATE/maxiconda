@@ -11,9 +11,7 @@ REM
 @echo off
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 
-set
-
-call %PREFIX%\maxiconda\Scripts\activate.bat
+call %PREFIX%\Scripts\activate.bat
 call conda config --set channel_priority strict
 call conda config --append channels Semi-ATE
 
