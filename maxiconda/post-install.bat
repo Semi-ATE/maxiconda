@@ -18,7 +18,7 @@ call conda config --append channels Semi-ATE
 REM add git to base here
 
 REM call mamba create -n _spyder_ _spyder_ -y
-call mamba create -n _spyder_ spyder>=5 ffmpeg -y
+call mamba create -n _spyder_ spyder>=5 ffmpeg spyder-screencast spyder-remote-client -y
 
 REM call mamba create -n maxiconda maxiconda -y
 call mamba create -n maxiconda numpy ipython -y
