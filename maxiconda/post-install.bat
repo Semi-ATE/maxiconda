@@ -1,4 +1,3 @@
-@echo off
 echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 call %PREFIX%\Scripts\activate.bat
