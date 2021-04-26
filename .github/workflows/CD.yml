@@ -37,13 +37,6 @@ jobs:
           #   MAXICONDA_NAME: "maxiconda-pypy"
           #   OS_NAME: "MacOSX"
 
-          # - os: ubuntu-latest
-          #   ARCH: aarch64
-          #   DOCKER_ARCH: arm64v8
-          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
-          #   MAXICONDA_NAME: "maxiconda"
-          #   OS_NAME: "Linux"
-
           - os: ubuntu-latest
             ARCH: x86_64
             DOCKER_ARCH: amd64
@@ -51,12 +44,12 @@ jobs:
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Linux"
 
-          # - os: ubuntu-latest
-          #   ARCH: aarch64
-          #   DOCKER_ARCH: arm64v8
-          #   DOCKERIMAGE: condaforge/linux-anvil-aarch64
-          #   MAXICONDA_NAME: "maxiconda-pypy"
-          #   OS_NAME: "Linux"
+          - os: ubuntu-latest
+            ARCH: aarch64
+            DOCKER_ARCH: arm64v8
+            DOCKERIMAGE: condaforge/linux-anvil-aarch64
+            MAXICONDA_NAME: "maxiconda"
+            OS_NAME: "Linux"
 
           - os: ubuntu-latest
             ARCH: x86_64
@@ -64,6 +57,14 @@ jobs:
             DOCKERIMAGE: condaforge/linux-anvil-comp7
             MAXICONDA_NAME: "maxiconda-pypy"
             OS_NAME: "Linux"
+
+          - os: ubuntu-latest
+            ARCH: aarch64
+            DOCKER_ARCH: arm64v8
+            DOCKERIMAGE: condaforge/linux-anvil-aarch64
+            MAXICONDA_NAME: "maxiconda-pypy"
+            OS_NAME: "Linux"
+
 
     steps:
     - name: Checkout
