@@ -1,6 +1,6 @@
 echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-call %PREFIX%\Scripts\activate.bat
+call %PREFIX%\condabin\activate.bat
 call conda config --set channel_priority strict
 call conda config --append channels Semi-ATE
 
