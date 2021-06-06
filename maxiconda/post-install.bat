@@ -1,5 +1,9 @@
 echo >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+echo %PREFIX%
+
+set /p DUMMY=Hit ENTER to continue...
+
 call %PREFIX%\condabin\activate.bat
 call conda config --set channel_priority strict
 call conda config --append channels Semi-ATE
