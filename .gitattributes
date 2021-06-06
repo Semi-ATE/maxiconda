@@ -1,0 +1,97 @@
+# images
+*.png binary
+*.PNG binary
+*.jpg binary
+*.JPG binary
+*.jpeg binary
+*.JPEG binary
+*.gif binary
+*.GIF binary
+*.ico binary
+*.ICO binary
+*.ttf binary
+*.TTF binary
+
+# Audio and video files
+*.mov binary
+*.MOV binary
+*.mp4 binary
+*.MP4 binary
+*.mp3 binary
+*.MP3 binary
+*.flv binary
+*.FLV binary
+*.fla binary
+*.FLA binary
+*.swf binary
+*.SWF binary
+
+# compressed files
+*.gz binary
+*.GZ binary
+*.tgz binary
+*.TGZ binary
+*.zip binary
+*.ZIP binary
+*.7z binary
+*.7Z binary
+
+# MS Word
+*.docx binary
+*.DOCX binary
+*.docm binary
+*.DOCM binary
+*.dotx binary
+*.DOTX binary
+*.dotm binary
+*.DOTM binary
+*.docb binary
+*.DOCB binary
+
+# MS Excel
+*.xlsx binary
+*.XLSX binary
+*.xlsm binary
+*.XLSM binary
+*.xltx binary
+*.XLTX binary
+*.xltm binary
+*.XLTM binary
+
+# MS PowerPoint
+.pptx binary
+.PPTX binary
+.pptm binary
+.PPTM binary
+.potx binary
+.POTX binary
+.potm binary
+.POTM binary
+.ppam binary
+.PPAM binary
+.ppsx binary
+.PPSX binary
+.ppsm binary
+.PPSM binary
+.sldx binary
+.SLDX binary
+.sldm binary
+.SLDM binary
+
+# MS Visio
+*.vsd binary
+*.VSD binary
+
+# MS Publisher
+*.pub binary
+*.PUB binary
+*.xps binary
+*.XPS binary
+
+# Open Office
+*.odt binary
+*.ODT binary
+*.ods binary
+*.ODS binary
+*.odp binary
+*.ODP binary
