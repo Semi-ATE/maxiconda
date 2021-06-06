@@ -9,8 +9,6 @@
 *.GIF binary
 *.ico binary
 *.ICO binary
-*.ttf binary
-*.TTF binary
 
 # Audio and video files
 *.mov binary
