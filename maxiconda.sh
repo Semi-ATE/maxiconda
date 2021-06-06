@@ -1,29 +1,13 @@
 #!/bin/bash
 
 USAGE_TXT="
-usage: $0 [--pypy]
+usage: $0
 
 This is a front-end for Linux- and MacOS- maxiconda installers. 
 It fetches the appropriate and most recent maxiconda installer for the 
 current OS/CPU, checks the SHA256 signature and then runs it.
 
---pypy     Use PyPy instead of the default CPython implementation.
 "
-
-IMPL=""
-for i in "$@"
-do
-case $i in
-    --pypy|-pypy|--PyPy|-PyPy)
-    IMPL="-pypy"
-    shift
-    ;;
-    *)
-    printf "%s\\n" "$USAGE_TXT"
-    exit
-    ;;
-esac
-done
 
 OS=`uname -s`
 case $OS in
@@ -61,7 +45,7 @@ BASE_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/download/"
 VERSION_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/"
 [[ `curl -s $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
 VERSION=${BASH_REMATCH[1]}
-INSTALLER="maxiconda$IMPL-$VERSION-$OS_NAME-$CPU_NAME.sh"
+INSTALLER="maxiconda-$VERSION-$OS_NAME-$CPU_NAME.sh"
 RUN_INSTALLER="bash $INSTALLER"
 SHA256="$INSTALLER.sha256"
 INSTALLER_URL="$BASE_URL$INSTALLER"
