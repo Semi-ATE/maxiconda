@@ -26,3 +26,5 @@ specs:
 {% else %}
   - python 3.9.*
 {% endif %}
+  - conda
+  - pip
