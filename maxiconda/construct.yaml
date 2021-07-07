@@ -1,6 +1,7 @@
 {% set version = os.environ.get("MAXICONDA_VERSION", "0.0.0") %}
+{% set name = os.environ.get("MAXICONDA_NAME", "broken") %}
 
-name: maxiconda
+name: {{ name }}
 version: {{ version }}
 company: conda-forge
 
