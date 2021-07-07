@@ -28,11 +28,5 @@ specs:
   - python 3.9.*
 {% endif %}
   - conda
-  - conda-build
   - mamba
   - pip
-  - git
-  - git-lfs
-  - menuinst
-  - maxiconda-shortcuts  
-  - spyder-remote-server
