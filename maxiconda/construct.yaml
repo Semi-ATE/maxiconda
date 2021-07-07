@@ -7,6 +7,7 @@ company: conda-forge
 
 channels:
   - conda-forge
+  - Semi-ATE
 
 write_condarc: True
 keep_pkgs: True
@@ -27,5 +28,11 @@ specs:
   - python 3.9.*
 {% endif %}
   - conda
+  - conda-build
   - mamba
   - pip
+  - git
+  - git-lfs
+  - menuinst
+  - maxiconda-shortcuts  
+  - spyder-remote-server
