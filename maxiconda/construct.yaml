@@ -25,5 +25,6 @@ specs:
 {% else %}
   - python 3.9.*
 {% endif %}
-  - conda 4.10.1
+  - conda
+  - mamba
   - pip
