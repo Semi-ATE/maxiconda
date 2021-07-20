@@ -67,8 +67,8 @@ printf -- "---------------------------------------------------------------------
 $DOWNLOAD_SHA256
 
 printf "\\nStep #3: Checking installer integrity ..."
-CALCULATED_CHECKSUM=`$SHA256SUM`
-GIVEN_CHECKSUM=$(head -n 1 $SHA256)
+CALCULATED_CHECKSUM=$(shasum -a 256 "./$INSTALLER" | cut -d' ' -f1)
+GIVEN_CHECKSUM=$(head -n 1 $SHA256 | cut -d' ' -f1)
 if [ "$CALCULATED_CHECKSUM" == "$GIVEN_CHECKSUM" ]
 then
     printf "PASS\\n"
