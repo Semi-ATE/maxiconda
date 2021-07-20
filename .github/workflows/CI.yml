@@ -60,7 +60,7 @@ jobs:
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
         fi
-        if [[ "$OS_NAME" == "MacOSX" ]]; then
+        if [[ "$OS_NAME" == "MacOS" ]]; then
           bash build_maxiconda_macos.sh;
         fi
         if [[ "$OS_NAME" == "Windows" ]]; then
