@@ -18,12 +18,12 @@ jobs:
           - os: macos-latest
             ARCH: x86_64
             MAXICONDA_NAME: "maxiconda"
-            OS_NAME: "MacOSX"
+            OS_NAME: "MacOS"
 
-          # - os: macos-latest
-          #   ARCH: arm64
-          #   MAXICONDA_NAME: "maxiconda"
-          #   OS_NAME: "MacOSX"
+          - os: macos-latest
+            ARCH: arm64
+            MAXICONDA_NAME: "maxiconda"
+            OS_NAME: "MacOS"
 
           - os: ubuntu-latest
             ARCH: x86_64
@@ -59,16 +59,13 @@ jobs:
       run: |
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
-          EXT=sh
         fi
         if [[ "$OS_NAME" == "MacOSX" ]]; then
           bash build_maxiconda_macos.sh;
-          EXT=sh
         fi
         if [[ "$OS_NAME" == "Windows" ]]; then
           source /c/Miniconda3/Scripts/activate;
           source build_maxiconda_windows.sh;
-          EXT=exe
         fi
       shell: bash
 
