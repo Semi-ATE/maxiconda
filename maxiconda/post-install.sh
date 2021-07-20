@@ -17,33 +17,45 @@ source $PREFIX/bin/activate
 conda config --set channel_priority strict
 conda config --append channels Semi-ATE
 
-OS=$(uname)
 CPU=$(uname -m)
+OS=$(uname)
 
-if [ OS == "Darwin"]; then
-   if [ CPU == "x86_64" ]; then
-      mamba create -n _spyder_ _spyder_ -y
-      mamba create -n maxiconda maxiconda -y
-   elif [ CPU == "arm64" ]; then 
-      # faking MacOS-arm64
-      mamba create -n _spyder_ python -y
-      mamba create -n maxiconda python -y
-   else
-      echo "Didn't recognize the '$CPU' processor ..."
-   fi
-elif [ OS == "Linux" ]; then
-   if [ CPU == "x86_64" ]; then
-      mamba create -n _spyder_ _spyder_ -y
-      mamba create -n maxiconda maxiconda -y
-   elif [ CPU == "aarch64" ]; then 
-      # faking Linux-aarch64
-      mamba create -n _spyder_ python -y
-      mamba create -n maxiconda python -y
-   else
-      echo "Didn't recognize the '$CPU' processor ..."
-   fi
-else 
-   echo "Didn't recognize the '$OS' operating system ..."
+case $OS in
+    Darwin)
+        case $CPU in
+            x86_64)
+                mamba create -n _spyder_ spyder -y
+                mamba create -n maxiconda maxiconda -y
+                ;;
+            arm64)
+                echo "MacOS-arm not yet operational"
+                ;;
+            *)
+                echo "'$CPU' is not supported in  MacOS"
+                ;;
+        esac
+        ;;
+    Linux)
+        case $CPU in
+            x86_64)
+                mamba create -n _spyder_ _spyder_ -y
+                mamba create -n maxiconda maxiconda -y
+                ;;
+            aarch64)
+                echo "Linux-aarch64 not yet operational"
+                ;;
+            *)
+                echo "'$CPU' is not supported in Linux"
+                ;;
+        esac
+        ;;
+    *)
+        echo "Unsupported Operating system"
+        ;;
+esac
+
+if [[ -z "${PAUSE}" ]]; then
+    read -e -p "hit <enter> to finish"
 fi
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
