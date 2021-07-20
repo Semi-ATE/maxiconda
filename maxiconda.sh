@@ -31,8 +31,8 @@ case $CPU in
     "aarch64")
         CPU_NAME="aarch64"
         ;;
-    "ppc64le")
-        CPU_NAME="ppc64le"
+    "arm64")
+        CPU_NAME="arm64"
         ;;
     *)
         printf "WOOPS: CPU '%s' is not yet implemented...\\n" $OS
@@ -52,7 +52,11 @@ INSTALLER_URL="$BASE_URL$INSTALLER"
 DOWNLOAD_INSTALLER="curl -SL $INSTALLER_URL --output $INSTALLER"
 SHA256_URL="$BASE_URL$SHA256"
 DOWNLOAD_SHA256="curl -SL $SHA256_URL --output $SHA256"
-SHA256SUM="sha256sum ./$INSTALLER"
+if [ "$OS_NAME" == "MacOS" ]; then
+    SHASUM="shasum ./$INSTALLER"
+else
+    SHA256SUM="sha256sum ./$INSTALLER"
+fi
 
 printf "\\nStep #1: Downloading '$INSTALLER'\\n"
 printf -- "-------------------------------------------------------------------------------\\n"
