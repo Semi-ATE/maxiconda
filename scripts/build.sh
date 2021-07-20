@@ -3,6 +3,20 @@
 set -xe
 echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
 
+function CorrectAppleName() {
+    local NAME_PARTS=($(echo $1 | tr "-" "\n"))
+    local NEW_NAME="${NAME_PARTS[0]}"
+    unset NAME_PARTS[0]
+    for i in "${NAME_PARTS[@]}"
+    do
+        if [ "$i" == "MacOSX" ]; then
+            NEW_NAME="${NEW_NAME}-MacOS"
+        else
+            NEW_NAME="${NEW_NAME}-$i"
+        fi
+    done
+    echo $NEW_NAME
+}
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
 
@@ -33,7 +47,7 @@ cp LICENSE $TEMP_DIR/
 
 ls -al $TEMP_DIR
 
-if [[ $(uname -r) != "$ARCH" ]]; then
+if [[ $(uname -m) != "$ARCH" ]]; then
     if [[ "$ARCH" == "arm64" ]]; then
         CONDA_SUBDIR=osx-arm64 conda create -n micromamba micromamba=0.6.5 -c https://conda-web.anaconda.org/conda-forge --yes
         EXTRA_CONSTRUCTOR_ARGS="$EXTRA_CONSTRUCTOR_ARGS --conda-exe $CONDA_PREFIX/envs/micromamba/bin/micromamba --platform osx-arm64"
@@ -60,6 +74,17 @@ echo "***** Move installer and hash to build folder *****"
 mkdir -p $CONSTRUCT_ROOT/build
 mv $INSTALLER_PATH $CONSTRUCT_ROOT/build/
 mv $HASH_PATH $CONSTRUCT_ROOT/build/
+
+echo "***** MacOSX --> MacOS *****"
+for file_name in $(ls "$CONSTRUCT_ROOT/build");
+do
+    corrected_name=$(CorrectAppleName $file_name)
+    if [ "$file_name" != $corrected_name ]; then
+        echo "$file_name --> $corrected_name"
+        mv $file_name $corrected_name
+    fi
+done
+
 
 echo "***** Done: Building Maxiconda installer *****"
 cd $CONSTRUCT_ROOT
