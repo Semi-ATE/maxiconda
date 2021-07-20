@@ -80,8 +80,8 @@ for file_name in $(ls "$CONSTRUCT_ROOT/build");
 do
     corrected_name=$(CorrectAppleName $file_name)
     if [ "$file_name" != $corrected_name ]; then
-        echo "$file_name --> $corrected_name"
-        mv $file_name $corrected_name
+        echo "$CONSTRUCT_ROOT/build/$file_name --> $CONSTRUCT_ROOT/build/$corrected_name"
+        mv "$CONSTRUCT_ROOT/build/$file_name" "$CONSTRUCT_ROOT/build/$corrected_name"
     fi
 done
 
