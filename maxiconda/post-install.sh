@@ -54,8 +54,4 @@ case $OS in
         ;;
 esac
 
-if [[ -z "${PAUSE}" ]]; then
-    read -e -p "hit <enter> to finish"
-fi
-
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> end : post-install <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
