@@ -15,7 +15,7 @@ case $OS in
         OS_NAME="Linux"
         ;;
     "Darwin")
-        OS_NAME="MacOSX"
+        OS_NAME="MacOS"
         ;;
     *)
         printf "WOOPS: OS '%s' is not yet implemented...\\n" $OS
