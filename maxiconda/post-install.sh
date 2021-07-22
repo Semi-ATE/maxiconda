@@ -42,7 +42,8 @@ case $OS in
                 mamba create -n maxiconda maxiconda -y
                 ;;
             aarch64)
-                echo "Linux-aarch64 not yet operational"
+                mamba create -n _spyder_ _spyder_ -y
+                mamba create -n maxiconda maxiconda -y
                 ;;
             *)
                 echo "'$CPU' is not supported in Linux"
