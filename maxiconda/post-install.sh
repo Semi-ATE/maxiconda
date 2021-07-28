@@ -15,7 +15,7 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start : post-install <<<<<<<<<<<<<<<<<<<<
 
 source $PREFIX/bin/activate
 conda config --set channel_priority strict
-conda config --append channels Semi-ATE
+conda config --prepend channels Semi-ATE
 
 CPU=$(uname -m)
 OS=$(uname)
