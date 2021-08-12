@@ -13,6 +13,7 @@ write_condarc: True
 keep_pkgs: True
 license_file: ../LICENSE
 
+pre_install: pre-install.sh       # [unix]
 post_install: post-install.sh     # [unix]
 post_install: post-install.bat    # [win]
 
