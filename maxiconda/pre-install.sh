@@ -20,7 +20,7 @@ CONDARC_FILE_LOCATIONS=(
     "$(eval echo \"$USER_HOME_DIR/.condarc\")"
 )
 
-if [ -v CONDA_ROOT ] && [ ! -z "$CONDA_ROOT" ]; then
+if [[ $CONDA_ROOT ]] && [ ! -z "$CONDA_ROOT" ]; then
     CONDARC_FILE_LOCATIONS+=(
 	"$(eval echo \"$CONDA_ROOT/.condarc\")"
 	"$(eval echo \"$CONDA_ROOT/condarc\")"
@@ -30,7 +30,7 @@ if [ -v CONDA_ROOT ] && [ ! -z "$CONDA_ROOT" ]; then
     )
 fi
 
-if [ -v CONDA_PREFIX ] && [ ! -z "$CONDA_PREFIX" ]; then
+if [[ $CONDA_PREFIX ]] && [ ! -z "$CONDA_PREFIX" ]; then
     CONDARC_FILE_LOCATIONS+=(
 	"$(eval echo \"$CONDA_PREFIX/.condarc\")"
 	"$(eval echo \"$CONDA_PREFIX/condarc\")"
@@ -40,7 +40,7 @@ if [ -v CONDA_PREFIX ] && [ ! -z "$CONDA_PREFIX" ]; then
     )
 fi
 
-if [ -v CONDARC ] && [ ! -z "$CONDARC" ]; then
+if [[ $CONDARC ]] && [ ! -z "$CONDARC" ]; then
     if [ -d "$CONDARC" ]; then
 	if [ $(echo "${CONDARC: -1}") = "/" ]; then
 	    CONDARC_DIR_LOCATIONS+=( "$CONDARC" )
@@ -87,7 +87,7 @@ done
 
 
 CONDA_INSTALLATION=false
-if [ -v CONDA_EXE ]; then
+if [[ $CONDA_EXE ]]; then
      if [ -d "$CONDA_EXE" ]; then
 	 CONDA_INSTALLATION=true
      fi
@@ -96,7 +96,7 @@ fi
 CAN_AUTO_REMOVE=true
 if [ ! ${#CONDARC_FILES[@]} -eq 0 ] || [ $CONDA_INSTALLATION = true ] || [ ! ${#ACTIVATED_SHELRC_FILES[@]} -eq 0 ]; then
 
-    if [ -v CONDA_EXE ]; then
+    if [[ $CONDA_EXE ]]; then
 	CONDA_INSTALL_DIR="$(dirname ${CONDA_EXE})"
 	CONDA_INSTALL_DIR="$(dirname ${CONDA_INSTALL_DIR})"
 	echo "Your system already holds a conda installation in '$CONDA_INSTALL_DIR' !"
