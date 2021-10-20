@@ -37,13 +37,10 @@ case $OS in
         ;;
     Linux)
         case $CPU in
-            x86_64)
+            x86_64|aarch64)
                 mamba create -n _spyder_ _spyder_ -y
                 mamba create -n maxiconda maxiconda -y
-                ;;
-            aarch64)
-                mamba create -n _spyder_ _spyder_ -y
-                mamba create -n maxiconda maxiconda -y
+                mamba install spyder-remote-server -y
                 ;;
             *)
                 echo "'$CPU' is not supported in Linux"
