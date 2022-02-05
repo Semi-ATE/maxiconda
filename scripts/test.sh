@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# Copyright (c) 2019-2021, conda-forge
+#
 
 set -ex
 

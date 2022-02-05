@@ -6,6 +6,10 @@
 # the use of containers images with different architectures than the host
 # [1]: https://github.com/multiarch/qemu-user-static/
 # See also: [setup-qemu-action](https://github.com/docker/setup-qemu-action)
+#
+# Copyright (c) 2019-2021, conda-forge
+#
+
 set -ex
 
 # Check parameters
