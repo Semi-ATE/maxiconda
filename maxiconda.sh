@@ -42,9 +42,12 @@ esac
 
 ## URI's & COMMANDS ###
 BASE_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/download/"
-VERSION_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/"
-[[ `curl -s $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
-VERSION=${BASH_REMATCH[1]}
+VERSION_URL="https://api.github.com/repos/Semi-ATE/maxiconda/releases/latest"
+
+VERSION=`curl --silent $VERSION_URL | grep -Po '"tag_name": "\K.*?(?=")'`
+
+#[[ `curl --silent $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
+#VERSION=${BASH_REMATCH[1]}
 INSTALLER="maxiconda-$VERSION-$OS_NAME-$CPU_NAME.sh"
 RUN_INSTALLER="bash $INSTALLER"
 SHA256="$INSTALLER.sha256"
@@ -82,7 +85,7 @@ printf -- "---------------------------------------------------------------------
 
 printf "\\nStep #4: Installing '$INSTALLER $PTA'\\n"
 printf -- "-------------------------------------------------------------------------------\\n"
-$RUN_INSTALLER
+#$RUN_INSTALLER
 
 printf "\\nStep #5: Cleaning up ... "
 `rm -f $INSTALLER`
