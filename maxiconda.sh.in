@@ -41,6 +41,7 @@ case $CPU in
 esac
 
 ## URI's & COMMANDS ###
+BASE_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/download/"
 VERSION="{{ version }}"
 #[[ `curl --silent $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
 #VERSION=${BASH_REMATCH[1]}
