@@ -3,8 +3,8 @@
 USAGE_TXT="
 usage: $0
 
-This is a front-end for Linux- and MacOS- maxiconda installers. 
-It fetches the appropriate and most recent maxiconda installer for the 
+This is a front-end for Linux- and MacOS- maxiconda installers.
+It fetches the appropriate and most recent maxiconda installer for the
 current OS/CPU, checks the SHA256 signature and then runs it.
 
 "
@@ -41,11 +41,7 @@ case $CPU in
 esac
 
 ## URI's & COMMANDS ###
-BASE_URL="https://github.com/Semi-ATE/maxiconda/releases/latest/download/"
-VERSION_URL="https://api.github.com/repos/Semi-ATE/maxiconda/releases/latest"
-
-VERSION=`curl --silent $VERSION_URL | grep -Po '"tag_name": "\K.*?(?=")'`
-
+VERSION="{{ version }}"
 #[[ `curl --silent $VERSION_URL` =~ [^0-9]+([^\"]+)\" ]]
 #VERSION=${BASH_REMATCH[1]}
 INSTALLER="maxiconda-$VERSION-$OS_NAME-$CPU_NAME.sh"
