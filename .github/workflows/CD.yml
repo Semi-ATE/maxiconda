@@ -22,10 +22,10 @@ jobs:
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "MacOS"
 
-          - os: macos-latest
-            ARCH: arm64
-            MAXICONDA_NAME: "maxiconda"
-            OS_NAME: "MacOS"
+#          - os: macos-latest
+#            ARCH: arm64
+#            MAXICONDA_NAME: "maxiconda"
+#            OS_NAME: "MacOS"
 
           - os: ubuntu-latest
             ARCH: x86_64
