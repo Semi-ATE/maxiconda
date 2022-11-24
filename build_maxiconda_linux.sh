@@ -12,6 +12,7 @@ set -ex
 ARCH=${ARCH:-aarch64}
 DOCKER_ARCH=${DOCKER_ARCH:-arm64v8}
 DOCKERIMAGE=${DOCKERIMAGE:-condaforge/linux-anvil-aarch64}
+MAXICONDA_VERSION=${MAXICONDA_VERSION:-0.0.0}
 export CONSTRUCT_ROOT=/construct
 
 echo "============= Create build directory ============="
