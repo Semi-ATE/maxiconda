@@ -25,7 +25,7 @@ docker run --rm --privileged multiarch/qemu-user-static \
 
 echo "============= Build the installer ============="
 docker run --rm -v "$(pwd):/construct" \
-  -e CONSTRUCT_ROOT -e MAXICONDA_NAME \
+  -e CONSTRUCT_ROOT -e ARCH -e MAXICONDA_NAME \
   ${DOCKERIMAGE} /construct/scripts/build.sh
 
 echo "============= Test the installer ============="
