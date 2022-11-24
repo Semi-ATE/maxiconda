@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-set -xe
-echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
+set -xeou
+#echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
+echo "***** Start: Building Maxiconda installer *****"
 
 function CorrectAppleName() {
     local NAME_PARTS=($(echo $1 | tr "-" "\n"))
@@ -19,6 +20,7 @@ function CorrectAppleName() {
 }
 
 CONSTRUCT_ROOT="${CONSTRUCT_ROOT:-$PWD}"
+EXTRA_CONSTRUCTOR_ARGS="${EXTRA_CONSTRUCTOR_ARGS:-}"
 
 cd $CONSTRUCT_ROOT
 
@@ -52,7 +54,7 @@ ls -al $TEMP_DIR
 
 if [[ $(uname -m) != "$ARCH" ]]; then
     if [[ "$ARCH" == "arm64" ]]; then
-        CONDA_SUBDIR=osx-arm64 conda create -n micromamba micromamba=0.6.5 -c https://conda-web.anaconda.org/conda-forge --yes
+        CONDA_SUBDIR=osx-arm64 conda create -n micromamba micromamba -c conda-forge --yes
         EXTRA_CONSTRUCTOR_ARGS="$EXTRA_CONSTRUCTOR_ARGS --conda-exe $CONDA_PREFIX/envs/micromamba/bin/micromamba --platform osx-arm64"
     fi
 fi

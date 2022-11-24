@@ -74,7 +74,7 @@ jobs:
       shell: bash
 
     - name: Upload release assets
-      uses: alexellis/upload-assets@0.2.3
+      uses: alexellis/upload-assets@0.4.0
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
@@ -103,7 +103,7 @@ jobs:
         cp maxiconda.sh build/
 
     - name: Upload release assets
-      uses: alexellis/upload-assets@0.2.3
+      uses: alexellis/upload-assets@0.4.0
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
