@@ -49,6 +49,9 @@ jobs:
         miniconda-version: "latest"
       if: contains(matrix.OS_NAME, 'Windows')
 
+    # - name: Debugging with tmate
+    #   uses: mxschmitt/action-tmate@v3.13
+
     - name: Build and test maxiconda
       env:
         ARCH: ${{ matrix.ARCH }}
