@@ -82,7 +82,7 @@ printf -- "---------------------------------------------------------------------
 
 printf "\\nStep #4: Installing '$INSTALLER $PTA'\\n"
 printf -- "-------------------------------------------------------------------------------\\n"
-#$RUN_INSTALLER
+$RUN_INSTALLER
 
 printf "\\nStep #5: Cleaning up ... "
 `rm -f $INSTALLER`
