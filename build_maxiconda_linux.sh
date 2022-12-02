@@ -6,7 +6,7 @@
 # the use of containers images with different architectures than the host
 # [1]: https://github.com/multiarch/qemu-user-static/
 # See also: [setup-qemu-action](https://github.com/docker/setup-qemu-action)
-set -ex
+set -exou
 
 # Check parameters
 ARCH=${ARCH:-aarch64}

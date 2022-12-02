@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 set -xeou
+
+MAXICONDA_VERSION=${MAXICONDA_VERSION:-0.0.0}
+
 echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
 
 function CorrectAppleName() {
