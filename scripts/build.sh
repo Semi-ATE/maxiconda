@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 set -xeou
-#echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
-echo "***** Start: Building Maxiconda installer *****"
+echo "***** Start: Building Maxiconda installer V$MAXICONDA_VERSION *****"
 
 function CorrectAppleName() {
     local NAME_PARTS=($(echo $1 | tr "-" "\n"))

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Build maxiconda installers for Linux 
+# Build maxiconda installers for Linux
 # on various architectures (aarch64, x86_64, ppc64le)
 # Notes:
-# It uses the qemu-user-static [1] emulator to enable 
+# It uses the qemu-user-static [1] emulator to enable
 # the use of containers images with different architectures than the host
 # [1]: https://github.com/multiarch/qemu-user-static/
 # See also: [setup-qemu-action](https://github.com/docker/setup-qemu-action)
@@ -12,6 +12,7 @@ set -ex
 ARCH=${ARCH:-aarch64}
 DOCKER_ARCH=${DOCKER_ARCH:-arm64v8}
 DOCKERIMAGE=${DOCKERIMAGE:-condaforge/linux-anvil-aarch64}
+MAXICONDA_VERSION=${MAXICONDA_VERSION:-0.0.0}
 export CONSTRUCT_ROOT=/construct
 
 echo "============= Create build directory ============="
@@ -25,7 +26,7 @@ docker run --rm --privileged multiarch/qemu-user-static \
 
 echo "============= Build the installer ============="
 docker run --rm -v "$(pwd):/construct" \
-  -e CONSTRUCT_ROOT -e ARCH -e MAXICONDA_NAME \
+  -e CONSTRUCT_ROOT -e ARCH -e MAXICONDA_NAME -e MAXICONDA_VERSION \
   ${DOCKERIMAGE} /construct/scripts/build.sh
 
 echo "============= Test the installer ============="
