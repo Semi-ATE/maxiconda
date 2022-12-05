@@ -9,5 +9,5 @@ env = Environment(
 template = env.get_template("maxiconda.sh.in")
 out = template.render(version=version)
 
-with open('maxiconda.sh', 'w') as f:
+with open(f'maxiconda-{version}.sh', 'w') as f:
     f.write(out)
