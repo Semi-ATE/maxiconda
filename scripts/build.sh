@@ -29,16 +29,17 @@ cd $CONSTRUCT_ROOT
 # Constructor should be latest for non-native building
 # See https://github.com/conda/constructor
 echo "***** Install constructor *****"
-# conda install -y "constructor>=3.1.0" jinja2 -c conda-forge -c defaults --override-channels
-conda install -y constructor jinja2 -c conda-forge --override-channels
-
+conda install --yes \
+    --channel conda-forge --override-channels \
+    jinja2 curl libarchive \
+    "constructor>=3.3.1"
 if [[ "$(uname)" == "Darwin" ]]; then
-    conda install -y coreutils -c conda-forge -c defaults --override-channels
-elif [[ "$(uname)" == MINGW* ]]; then
-    conda install -y "nsis=3.01" -c conda-forge -c defaults --override-channels
+    conda install --yes coreutils --channel conda-forge --override-channels
 fi
-# pip install git+git://github.com/conda/constructor@8c0121d3b81846de42973b52f13135f0ffeaddda#egg=constructor --force --no-deps
-# pip install git+git://github.com/conda/constructor#egg=constructor --force --no-deps
+# shellcheck disable=SC2154
+if [[ "${TARGET_PLATFORM}" == win-* ]]; then
+    conda install --yes "nsis=3.01" --channel conda-forge --override-channels
+fi
 conda list
 
 echo "***** Make temp directory *****"
@@ -54,14 +55,29 @@ cp LICENSE $TEMP_DIR/
 
 ls -al $TEMP_DIR
 
-if [[ $(uname -m) != "$ARCH" ]]; then
-    if [[ "$ARCH" == "arm64" ]]; then
-        CONDA_SUBDIR=osx-arm64 conda create -n micromamba micromamba -c conda-forge --yes
-        EXTRA_CONSTRUCTOR_ARGS="$EXTRA_CONSTRUCTOR_ARGS --conda-exe $CONDA_PREFIX/envs/micromamba/bin/micromamba --platform osx-arm64"
+if [[ "${TARGET_PLATFORM}" != win-* ]]; then
+    MICROMAMBA_VERSION=1.0.0
+    MICROMAMBA_BUILD=1
+    mkdir "${TEMP_DIR}/micromamba"
+    pushd "${TEMP_DIR}/micromamba"
+    curl -L -O "https://anaconda.org/conda-forge/micromamba/${MICROMAMBA_VERSION}/download/${TARGET_PLATFORM}/micromamba-${MICROMAMBA_VERSION}-${MICROMAMBA_BUILD}.tar.bz2"
+    bsdtar -xf "micromamba-${MICROMAMBA_VERSION}-${MICROMAMBA_BUILD}.tar.bz2"
+    if [[ "${TARGET_PLATFORM}" == win-* ]]; then
+      MICROMAMBA_FILE="${PWD}/Library/bin/micromamba.exe"
+    else
+      MICROMAMBA_FILE="${PWD}/bin/micromamba"
     fi
+    popd
+    EXTRA_CONSTRUCTOR_ARGS="${EXTRA_CONSTRUCTOR_ARGS} --conda-exe ${MICROMAMBA_FILE} --platform ${TARGET_PLATFORM}"
 fi
 
 echo "***** Construct the installer *****"
+# Transmutation requires the current directory is writable
+cd "${TEMP_DIR}"
+# shellcheck disable=SC2086
+constructor "${TEMP_DIR}/maxiconda/" --output-dir "${TEMP_DIR}" ${EXTRA_CONSTRUCTOR_ARGS}
+cd -
+
 echo "constructor $TEMP_DIR/maxiconda/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS"
 constructor $TEMP_DIR/maxiconda/ --output-dir $TEMP_DIR $EXTRA_CONSTRUCTOR_ARGS
 
