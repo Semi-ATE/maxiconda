@@ -14,16 +14,19 @@ jobs:
             ARCH: x86_64
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Windows"
+            TARGET_PLATFORM: "win-64"
 
           - os: macos-latest
             ARCH: x86_64
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "MacOS"
+            TARGET_PLATFORM: "osx-64"
 
           - os: macos-latest
             ARCH: arm64
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "MacOS"
+            TARGET_PLATFORM: "osx-arm64"
 
           - os: ubuntu-latest
             ARCH: x86_64
@@ -31,6 +34,7 @@ jobs:
             DOCKERIMAGE: condaforge/linux-anvil-comp7
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Linux"
+            TARGET_PLATFORM: "linux-64"
 
           - os: ubuntu-latest
             ARCH: aarch64
@@ -38,6 +42,7 @@ jobs:
             DOCKERIMAGE: condaforge/linux-anvil-aarch64
             MAXICONDA_NAME: "maxiconda"
             OS_NAME: "Linux"
+            TARGET_PLATFORM: "linux-aarch64"
 
     steps:
     - name: Checkout code
@@ -59,6 +64,7 @@ jobs:
         OS_NAME: ${{ matrix.OS_NAME }}
         DOCKERIMAGE: ${{ matrix.DOCKERIMAGE }}
         DOCKER_ARCH: ${{ matrix.DOCKER_ARCH }}
+        TARGET_PLATFORM: ${{ matrix.TARGET_PLATFORM }}
       run: |
         if [[ "$OS_NAME" == "Linux" ]]; then
           bash build_maxiconda_linux.sh;
