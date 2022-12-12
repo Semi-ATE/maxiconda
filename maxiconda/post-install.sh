@@ -5,7 +5,7 @@
 
 # file : post-install.sh
 
-# 
+#
 # Once the maxiconda installer did run (and thus created the 'base' envriornment),
 # this script is (on Linux and MacOS) responsible to create the '_spyder_' and 'maxiconda'
 # environments with the respectively named conda metapackages from the Semi-ATE channel.
@@ -19,12 +19,13 @@ conda config --prepend channels Semi-ATE
 
 CPU=$(uname -m)
 OS=$(uname)
+TMP="/tmp"
 
 case $OS in
     Darwin)
         case $CPU in
             x86_64)
-                mamba create -n _spyder_ spyder -y
+                mamba create -n _spyder_ _spyder_ -y
                 mamba create -n maxiconda maxiconda -y
                 ;;
             arm64)
