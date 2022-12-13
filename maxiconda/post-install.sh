@@ -24,12 +24,9 @@ TMP="/tmp"
 case $OS in
     Darwin)
         case $CPU in
-            x86_64)
+            x86_64|arm64)
                 mamba create -n _spyder_ _spyder_ -y
                 mamba create -n maxiconda maxiconda -y
-                ;;
-            arm64)
-                echo "MacOS-arm not yet operational"
                 ;;
             *)
                 echo "'$CPU' is not supported in  MacOS"
