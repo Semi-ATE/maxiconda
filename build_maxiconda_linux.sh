@@ -32,8 +32,10 @@ docker run --rm -v "$(pwd):/construct" \
 
 echo "============= Test the installer ============="
 #for TEST_IMAGE_NAME in "ubuntu:20.04" "ubuntu:19.10" "ubuntu:16.04" "ubuntu:18.04" "centos:7" "debian:buster"; do
-for TEST_IMAGE_NAME in "ubuntu:20.04"; do
-  echo "============= Test installer on ${TEST_IMAGE_NAME} ============="
-  docker run --rm -v "$(pwd):/construct" -e CONSTRUCT_ROOT \
-    "${DOCKER_ARCH}/${TEST_IMAGE_NAME}" /construct/scripts/test.sh
-done
+if [[ $ARCH == "x86_64" ]]; then
+  for TEST_IMAGE_NAME in "ubuntu:20.04"; do
+    echo "============= Test installer on ${TEST_IMAGE_NAME} ============="
+    docker run --rm -v "$(pwd):/construct" -e CONSTRUCT_ROOT \
+      "${DOCKER_ARCH}/${TEST_IMAGE_NAME}" /construct/scripts/test.sh
+  done
+fi
