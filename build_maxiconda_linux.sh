@@ -11,6 +11,7 @@ set -exou
 # Check parameters
 ARCH=${ARCH:-aarch64}
 DOCKER_ARCH=${DOCKER_ARCH:-arm64v8}
+export TARGET_PLATFORM=${TARGET_PLATFORM:-linux-aarch64}
 DOCKERIMAGE=${DOCKERIMAGE:-condaforge/linux-anvil-aarch64}
 MAXICONDA_VERSION=${MAXICONDA_VERSION:-0.0.0}
 export CONSTRUCT_ROOT=/construct
@@ -26,7 +27,7 @@ docker run --rm --privileged multiarch/qemu-user-static \
 
 echo "============= Build the installer ============="
 docker run --rm -v "$(pwd):/construct" \
-  -e CONSTRUCT_ROOT -e ARCH -e MAXICONDA_NAME -e MAXICONDA_VERSION \
+  -e CONSTRUCT_ROOT -e TARGET_PLATFORM -e ARCH -e MAXICONDA_NAME -e MAXICONDA_VERSION \
   ${DOCKERIMAGE} /construct/scripts/build.sh
 
 echo "============= Test the installer ============="
